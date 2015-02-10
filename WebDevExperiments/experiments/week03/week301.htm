@@ -7,30 +7,8 @@
     <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("input").focus(function () {
-                $(this).css("background-color", "yellow");
-            });
-            $("input").blur(function () {
-                $(this).css("background-color", "white");
-            });
-            $("#tgDiv button").click(function () {
-                $("#tgDiv p").toggle();
-            });
-
-            $("#firstfade button").click(function () {
-                $("#firstfade #div1").fadeToggle();
-                $("#firstfade #div2").fadeToggle("slow");
-                $("#firstfade #div3").fadeToggle(3000);
-            });
-            $("#secondfade button").click(function () {
-                $("#secondfade #div1").fadeTo("slow", 0.15);
-                $("#secondfade #div2").fadeTo("slow", 0.4);
-                $("#secondfade #div3").fadeTo("slow", 0.7);
-            });
-        });
-    </script>
+    <script src="../js/week03.js"></script>
+ 
 
 </head>
 <body>
@@ -47,8 +25,8 @@
     <h4> Focus and blur </h4>
     <p>On focus the color of the input box changes to yellow. On blur the color changes back to white.</p>
     <div> 
-        &emsp;&emsp;Name: <input type="text" name="fullname"><br>
-        &emsp;&emsp;Email: <input type="text" name="email">
+        &emsp;&emsp;Name: <input type="text" class="focus" name="fullname"><br>
+        &emsp;&emsp;Email: <input type="text" class="focus" name="email">
     </div>
     <div>
         <h4>Code Snippet :</h4>

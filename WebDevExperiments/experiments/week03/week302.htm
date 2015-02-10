@@ -7,32 +7,7 @@
     <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-
-            $("#appendItem").click(function () {
-                $("ol").append("<li class='extra' >Appended item</li>");
-            });
-            $("#prependItem").click(function () {
-                $("ol").prepend("<li class='extra' >Prepended item</li>");
-            });
-            $("#afterItem").click(function () {
-                $("ol").after("<p class='extra' >After OL</p>");
-            });
-            $("#beforeItem").click(function () {
-                $("ol").before("<p class='extra' >Before OL</p>");
-            });
-            $("#removeItem").click(function () {
-                $("li").remove(".extra");
-                $("p").remove(".extra");
-            });
-            $("#emptyItem").click(function () {
-                $("ol").empty();
-            });
-
-        });
-    </script>
-
+    <script src="../js/week03.js"></script>
 </head>
 <body>
     <h1>Modify DOM using Jquery</h1>

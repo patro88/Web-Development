@@ -105,7 +105,7 @@
     
                         During the course I will be doing a lot of <a href="story/index.htm?../experiments/" target="_blank">experiments</a>. 
                         Also, I will work on developing a <a href="#" target="_blank">project</a> at the end of the semester. 
-                       All my experiments can be found on the <a href="https://github.com/patro88/Web-Development" target="_blank"> GitHub</a>.</p>
+                       All my experiments can be found on the <a href="https://github.com/patro88/Web-Development/tree/master/WebDevExperiments" target="_blank"> GitHub</a>.</p>
                     <p>
                         I look forward to learn and implement all the new concepts I learn in this course.
                         
