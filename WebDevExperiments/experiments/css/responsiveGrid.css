@@ -1,0 +1,22 @@
+﻿
+#container{
+    width: 960px;
+}
+.row{
+    clear:both;
+    width: 960px;
+}
+.col-1 , .col-2, .col-3{
+    float:left;
+}
+.col-1 , .col-1 li{
+    width: 200px;
+}
+.col-2 {
+    width: 300px;
+    padding-left:50px;
+}
+.col-3 {
+    width: 400px;
+    padding-left:50px;
+}

@@ -1,0 +1,7 @@
+﻿../../story/whatisnext.htm?../experiments/week03/week3_story.txt     What is Next?
+week301.htm                                                          Jquery Events and animations
+week302.htm                                                          Modify DOM using Jquery
+week303.htm                                                          Jquery and Ajax
+week304.htm                                                          JqueryUI Interactions 
+week305.htm                                                          JqueryUI Effects
+week3_story.txt                                                      The story file for this story

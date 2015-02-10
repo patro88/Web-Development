@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> HTML5 experiments </title>
+    <link rel="stylesheet" href="../css/week101.css" />
+</head>
+<body>
+
+    <h1>HTML Form elements</h1>
+    <hr />
+    <br />
+    <form oninput="result.value = parseInt(range.value)">
+        <fieldset>
+            <legend>Personal information:</legend>
+            <div id="container">
+                <div>
+                    <label for="text"> Normal Text : </label>
+                    <input id="text" type="text" />
+                </div>
+                <div>
+                    <label for="email"> Email : </label>
+                    <input id="email" placeholder="someone@somewhere.com" type="email" />
+                </div>
+                <div>
+                    <label for="date"> Date Time Input : </label>
+                    <input id="date" type="datetime-local" />
+                </div>
+                <div>
+                    Radio:
+                    <input type="radio" name="check" /> Yes
+                    <input type="radio" name="check" /> No
+                </div>
+                <div>
+                    Select List:
+                    <select>
+                        <option> Some option </option>
+                        <option> Other option </option>
+                    </select>
+                </div>
+                <div>
+                    <label for="color">Color: </label>
+                    <input id="color" type="color" />
+                </div>
+                <div>
+                    <label for="browser">Datalist: </label>
+                    <input id="browser" list="browsers" name="browser">
+                    <datalist id="browsers">
+                        <option value="Internet Explorer">
+                        <option value="Firefox">
+                        <option value="Chrome">
+                        <option value="Opera">
+                        <option value="Safari">
+                    </datalist>
+
+                </div>
+                <div>
+                    Range:
+                    <input id="range" type="range" max="100" value="50" />
+                    <output name="result" for="range" >50</output>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <h3> Description: </h3>
+    <p class="test">
+        In this experiment I have implemented basic html form elements.<br />
+        These include text input , email input, radio, checkbox, date-time, datalist , color
+        range and output elements.
+    
+        I implemented the legend and fieldset elements to show the forms.
+    </p>
+    <p class="test">
+        Also I learnt to call the oninput function in form element to show the  result of thee range button.<br />
+        <code>
+            &emsp;&lt;form oninput="result.value = parseInt(range.value)"&gt;
+        </code>
+    </p>
+    <p>
+       <h3> View Source : </h3> 
+        <a href="../../fileview/Default.aspx?~/experiments/week01/week101.htm" target="_blank"> HTML </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/css/week101.css" target="_blank"> CSS </a>
+    <p>
+       <h3> Reference :</h3><a href="http://www.w3schools.com/" target="_blank"> W3schools </a>
+    </p>
+
+    <hr />
+
+
+</body>
+</html>

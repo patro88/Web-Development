@@ -1,0 +1,54 @@
+﻿body {
+    background: #f4f4f2;
+    margin: 0px;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body h1 {
+    text-align: center;
+}
+
+#firstfade{
+    float:left;
+}
+#secondfade{
+    float:left;
+}
+#fadeDiv + hr{
+    clear:both;
+}
+
+#sortableDiv{
+    width:300px;
+}
+
+h1 { padding: .2em; margin: 0; }
+#products { float:left; width: 500px; margin-right: 2em; }
+#cart { width: 200px; float: left; margin-top: 1em; }
+/* style the list to maximize the droppable hitarea */
+#cart ol { margin: 0; padding: 1em 0 1em 3em; }
+
+#shoopingEnd{
+    clear:both;
+    padding-top: 20px;
+}
+
+.ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+  }
+  /* IE 6 doesn't support max-height
+   * we use height instead, but this forces the menu to always be this tall
+   */
+  * html .ui-autocomplete {
+    height: 100px;
+  }
+
+.toggler { width: 500px; height: 200px; position: relative; }
+#responsive { padding: .5em 1em; text-decoration: none; }
+#effect { width: 240px; height: 135px; padding: 0.4em; position: relative; background: #fff; }
+#effect h3 { margin: 0; padding: 0.4em; text-align: center; }

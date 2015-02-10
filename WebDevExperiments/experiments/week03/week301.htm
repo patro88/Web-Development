@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Jquery Events and animations </title>
+    <link rel="stylesheet" href="../css/week301.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("input").focus(function () {
+                $(this).css("background-color", "yellow");
+            });
+            $("input").blur(function () {
+                $(this).css("background-color", "white");
+            });
+            $("#tgDiv button").click(function () {
+                $("#tgDiv p").toggle();
+            });
+
+            $("#firstfade button").click(function () {
+                $("#firstfade #div1").fadeToggle();
+                $("#firstfade #div2").fadeToggle("slow");
+                $("#firstfade #div3").fadeToggle(3000);
+            });
+            $("#secondfade button").click(function () {
+                $("#secondfade #div1").fadeTo("slow", 0.15);
+                $("#secondfade #div2").fadeTo("slow", 0.4);
+                $("#secondfade #div3").fadeTo("slow", 0.7);
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <h1>Jquery Events and animations</h1>
+    <hr />
+    <h2> Description: </h2>
+    <p>
+        In this Experiment , I have implemented basic javascript and jquery. I have not done any basic javascript experiments. 
+        I started with using Jquery. I have tried to increase my understanding in jquery by implementing all examples on the jquery website.
+        I have used w3schools experiments as reference. As I already know Jquery , I have tried to implement functions which I haven't used already.
+    </p>
+    <br />
+
+    <h4> Focus and blur </h4>
+    <p>On focus the color of the input box changes to yellow. On blur the color changes back to white.</p>
+    <div> 
+        &emsp;&emsp;Name: <input type="text" name="fullname"><br>
+        &emsp;&emsp;Email: <input type="text" name="email">
+    </div>
+    <div>
+        <h4>Code Snippet :</h4>
+        <code>
+            &emsp;&emsp;$("input").focus(function () {<br />
+            &emsp;&emsp;&emsp;$(this).css("background-color", "yellow");<br />
+            &emsp;&emsp;});<br />
+            &emsp;&emsp;$("input").blur(function () {<br />
+            &emsp;&emsp;&emsp;$(this).css("background-color", "white");<br />
+            &emsp;&emsp;});<br />
+        </code>
+    </div>
+    <hr />
+    <h4> Toggle Function </h4>
+    <p> The toggle function toggles the element between hidden and displayed. </p>
+    <div id="tgDiv">
+        <button>Toggle</button>
+        <p>This is a paragraph with little content.</p>
+        <p>This is another small paragraph.</p>
+    </div>
+    <div>
+        <h4>Code Snippet :</h4>
+        <code>
+            &emsp;&emsp; $("button").click(function(){<br />
+            &emsp;&emsp;&emsp;$("p").toggle();<br />
+            &emsp;&emsp;});<br />
+        </code>
+    </div>
+    <hr />
+    <h4> fadeToggle and fadeTo methods : </h4>
+    <p> <strong>FadeToggle : </strong> This method makes the selected element fade to hidden with an animation delay provided as input. The input can be fast, slow, or any integer value </p>
+    <p> <strong>FadeTo : </strong> This method makes the selected element fade to a value provided in the inputs. It takes two inputs, the transition speed as above, the other is the oapcity to which the element is faded to. </p>
+    <div id="fadeDiv">
+        <div id="firstfade">
+            <button>Click to fade in/out boxes</button><br><br>
+            <div id="div1" style="width:80px;height:80px;background-color:red;"></div>
+            <code>
+                &emsp;&emsp; $("#div1").fadeToggle()<br />
+            </code>
+            <br>
+            <div id="div2" style="width:80px;height:80px;background-color:green;"></div>
+            <code>
+                &emsp;&emsp; $("#div1").fadeToggle("slow")<br />
+            </code>
+            <br>
+            <div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+            <code>
+                &emsp;&emsp; $("#div1").fadeToggle(3000)<br />
+            </code>
+        </div>
+        <div id="secondfade">
+            <button>Click to fade in/out boxes</button><br><br>
+            <div id="div1" style="width:80px;height:80px;background-color:red;"></div>
+            <code>
+                &emsp;&emsp; $("#div1").fadeTo("slow", 0.15)<br />
+            </code>
+            <br>
+            <div id="div2" style="width:80px;height:80px;background-color:green;"></div>
+            <code>
+                &emsp;&emsp; $("#div1").fadeTo("slow", 0.4)<br />
+            </code>
+            <br>
+            <div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+            <code>
+                &emsp;&emsp; $("#div1").fadeTo("slow", 0.7)<br />
+            </code>
+        </div>
+
+    </div>
+    <hr />
+
+    <h3> View Source : </h3>
+    <a href="../../fileview/Default.aspx?~/experiments/week03/week301.htm" target="_blank"> HTML </a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/css/week301.css" target="_blank"> CSS </a>
+    <p>
+        <h3> Reference :</h3>
+        <a href="http://api.jquery.com/" target="_blank"> jQuery API </a><br />
+        <a href="http://www.w3schools.com/" target="_blank"> W3schools </a>
+    </p>
+
+    <hr />
+
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+﻿<p><strong>content in text file on server</strong></p>
+<p>ajax content loaded</p>

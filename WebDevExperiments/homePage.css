@@ -1,0 +1,168 @@
+﻿body {
+        background: #f4f4f2;
+        margin: auto;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pad hr{
+        -webkit-margin-before: 0em;
+         border-top: 2px solid #ccc;
+    }
+
+    ul.master_navigation
+    {
+        font-size: 100%;
+        font-weight: bold;
+        text-align: center;
+        list-style: none;
+    }
+
+    ul.master_navigation li
+    {
+        display: inline-block;
+        padding: 0 1%;
+        vertical-align: top;
+    }
+    ul {
+        margin: auto;
+    }
+   a
+    {
+        font-weight: bold;
+        text-decoration: none;
+    }
+    h3 {
+        font-family: "Segoe UI","Segoe WP",Arial,Sans-Serif;
+        font-weight: 400;
+        line-height: 1.384;
+        color: #333;
+        font-size: 17px;
+    }
+    /*a:visited
+    {
+        color: #88f;
+    }*/
+
+    p
+    {
+        text-align: justify;
+    }
+    li:hover{
+        cursor:pointer; 
+    }
+    .blog:hover{
+         background: #c67ab7;
+    }
+   .experiments:hover{
+        background: greenyellow;
+    }
+    .automiage:hover{
+         background: #009ee5;
+    }
+    .autofile:hover{
+         background: #52b043;
+    }
+    .filelist:hover{
+         background: #00b6f1;
+    }
+    .textview:hover{
+        background: #3b5999;
+    }
+    .searchtree:hover{
+         background: #98008f;
+    }
+    .search:hover{
+         background: #2251a3;
+    }
+    .source:hover{
+         background: #672a7a;
+    }
+    .statistics:hover{
+         background: #eb3c00;
+    }
+    
+    .sitestatistics:hover{
+        background: #167ab7;
+    }
+    
+    ul.master_navigation li:hover h3{
+        color: #fff;
+    }
+    h3:hover{
+        color: #fff;
+    }
+    .logo{
+        margin-top:16px;
+    }
+    .logomain ,.logohover{
+        font-family: "Segoe UI","Segoe WP",Arial,Sans-Serif;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 1.2;
+        margin-top: -.2rem;
+    }
+    .logomain {
+        color: blue;
+    }
+    .logohover{
+        color: green;
+        display: none;
+    }
+    .logo:hover .logomain{
+        display: none;
+    }
+    .logo:hover .logohover{
+        display: inline-block;
+    }
+
+     .self_image {
+        width: 300px;
+   }
+      .self_details {
+          margin-left: 100px;
+          max-width: 700px;
+          min-height: 350px;
+      }
+      .self_details , #image_div {
+          float:left;
+   }
+      .self_details h3 {
+            font-family: Roboto,sans-serif;
+            font-weight: 300;
+            font-size: 1.8em;
+            color: #5b5b5b;
+            line-height: 50px;
+            margin-bottom: -10px;
+      }
+      .self_details p {
+            font-family: verdana;
+            font-size: 13.5px;
+            line-height: 27px;
+            color: #1d2021;
+            word-wrap: break-word
+      }
+    form + hr {
+        clear:both;
+    }
+    .footer{
+        clear:both;
+        height: auto;
+        font-family: Tahoma;
+        bottom: 8px;
+        color: #000;
+        text-align: center;
+        font-size: 15px;
+        padding: 5px;
+    }
+    .contact{
+        padding: 30px;
+        float: left;
+        color: #000;
+        margin-bottom: 10px;
+    }
+    #fbImage, #linkedImage, #twitterImage, #googleImage {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;

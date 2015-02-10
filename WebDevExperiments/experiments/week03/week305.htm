@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>  JqueryUI Effects   </title>
+    <link rel="stylesheet" href="../css/week301.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+    <script>
+        $(function () {
+            var state = true;
+            $("#responsive").click(function () {
+                if (state) {
+                    $("#effect").animate({
+                        backgroundColor: "#aa0000",
+                        color: "#fff",
+                        width: 500
+                    }, 1000);
+                } else {
+                    $("#effect").animate({
+                        backgroundColor: "#fff",
+                        color: "#000",
+                        width: 240
+                    }, 1000);
+                }
+                state = !state;
+            });
+
+            var availableTags = [
+                              "ActionScript",
+                              "AppleScript",
+                              "Asp",
+                              "BASIC",
+                              "C",
+                              "C++",
+                              "Clojure",
+                              "COBOL",
+                              "ColdFusion",
+                              "Erlang",
+                              "Fortran",
+                              "Groovy",
+                              "Haskell",
+                              "Java",
+                              "JavaScript",
+                              "Lisp",
+                              "Perl",
+                              "PHP",
+                              "Python",
+                              "Ruby",
+                              "Scala",
+                              "Scheme"
+            ];
+            $("#tags").autocomplete({
+                source: availableTags
+            });
+
+            $(document).tooltip({
+                track: true
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <h1> JqueryUI Effects </h1>
+    <hr />
+    <h2> Description: </h2>
+    <p>
+        In this Experiment , I have tried some more experiments using JqueryUI. I have tried widgets like autocomplete and tooltip .<br />
+        I also used color animations using JquryUI.
+    </p>
+    <hr />
+    <h4> JQueryUI Autocomplete and Tooltip  </h4>
+    <p><strong>AutoComplete</strong></p>
+    <p> The autocomplete also uses the scrollable options. Type in the textbox to see the options.</p>
+    <div class="ui-widget">
+        <label for="tags">Type something: </label>
+        <input id="tags">
+    </div>
+    <h4>Code Snippet :</h4>
+    <code>
+        &emsp;&emsp; $( "#tags" ).autocomplete({<br />
+        &emsp;&emsp;&emsp; source: availableTags<br />
+        &emsp;&emsp; });
+
+    </code>
+    <p><strong>Jquery UI Tooltip</strong></p>
+    <p> the tooltip used uses the property <code>track : true</code> to track the mouse movement.</p>
+    <p><label>Hover here: </label> <input id="age" title="This is a tooltip which moves along with the mouse."></p>
+    <p>Hover the field to see the tooltip.</p>
+    <h4>Code Snippet :</h4>
+    <code>
+        &emsp;&emsp; $( document ).tooltip({<br />
+        &emsp;&emsp;&emsp; track: true<br />
+        &emsp;&emsp; });
+
+    </code> 
+    <hr />
+    <h4> Responsive design using Jquery</h4>
+    <p>This experiment uses the jquery function <code>animate()</code> to change behaviour of the div when the size is changed</p>
+    <div class="toggler">
+        <div id="effect" class="ui-widget-content ui-corner-all">
+            <h4 class="ui-widget-header ui-corner-all">Responsive Div</h4>
+            <p>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+    </div>
+
+    <button id="responsive" class="ui-state-default ui-corner-all">Toggle Effect</button>
+    <div id="shoopingEnd">
+        <h4>Code Snippet :</h4>
+        <code>
+            &emsp;&emsp;state = true;<br />
+            &emsp;&emsp;$("#responsive").click(function () {<br />
+            &emsp;&emsp;&emsp;if (state) {<br />
+            &emsp;&emsp;&emsp;&emsp;$("#effect").animate({<br />
+            &emsp;&emsp;&emsp;&emsp;&emsp;backgroundColor: "#aa0000",<br />
+            &emsp;&emsp;&emsp;&emsp;&emsp;color: "#fff",<br />
+            &emsp;&emsp;&emsp;&emsp;&emsp;width: 500<br />
+            &emsp;&emsp;&emsp;&emsp;}, 1000);<br />
+            &emsp;&emsp;&emsp;} else {<br />
+            &emsp;&emsp;&emsp;&emsp;$("#effect").animate({<br />
+            &emsp;&emsp;&emsp;&emsp;&emsp;backgroundColor: "#fff",<br />
+            &emsp;&emsp;&emsp;&emsp;&emsp;color: "#000",<br />
+            &emsp;&emsp;&emsp;&emsp;&emsp;width: 240<br />
+            &emsp;&emsp;&emsp;&emsp;}, 1000);<br />
+            &emsp;&emsp;&emsp;}<br />
+            &emsp;&emsp;state = !state;<br />
+
+
+        </code>
+    </div>
+    <hr />
+
+    <h3> View Source : </h3>
+    <a href="../../fileview/Default.aspx?~/experiments/week03/week305.htm" target="_blank"> HTML </a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/css/week301.css" target="_blank"> CSS </a>
+    <p>
+        <h3> Reference :</h3>
+        <a href="http://api.jquery.com/" target="_blank"> jQuery API </a><br />
+        <a href="http://jqueryui.com/" target="_blank"> JQuery UI </a>
+    </p>
+
+    <hr />
+
+
+</body>
+</html>

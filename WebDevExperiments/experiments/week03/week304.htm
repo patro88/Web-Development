@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> JqueryUI Interactions  </title>
+    <link rel="stylesheet" href="../css/week301.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    
+    <script>
+        $(function () {
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
+           
+            $("#catalog").accordion();
+            $("#catalog li").draggable({
+                appendTo: "body",
+                helper: "clone"
+            });
+            $("#cart ol").droppable({
+                activeClass: "ui-state-default",
+                hoverClass: "ui-state-hover",
+                accept: ":not(.ui-sortable-helper)",
+                drop: function (event, ui) {
+                    $(this).find(".placeholder").remove();
+                    $("<li></li>").text(ui.draggable.text()).appendTo(this);
+                }
+            }).sortable({
+                items: "li:not(.placeholder)",
+                sort: function () {
+                    // gets added unintentionally by droppable interacting with sortable
+                    // using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
+                    $(this).removeClass("ui-state-default");
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <h1>JqueryUI Interactions</h1>
+    <hr />
+    <h2> Description: </h2>
+    <p>
+        In this Experiment , I have used draggable, droppable, and sortable interactions in Jquery UI. I have tried two experiments mainly.
+        <br /> One is the sortable list. This uses the sortable function.<br />
+        The other is the shopping cart which makes use of drag, drop and sort functions of jquery.
+
+
+    </p>
+    <hr />
+    <h4> Jquery UI Sortable  </h4>
+    <p>This experiment uses the sortable function of Jquery UI. This makes the list items drag in vertical position and when dropped , it allows the item to be placed at that particular position</p>
+    <div id="sortableDiv">
+        <ul id="sortable">
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+        </ul>
+    </div>
+
+    <div>
+        <h4>Code Snippet :</h4>
+        <code>
+            &emsp;&emsp;  $("#sortable").sortable();<br />
+            &emsp;&emsp;  $("#sortable").disableSelection();<br />
+        </code>
+    </div>
+    <hr />
+    <h4> Drag and Drop (Shopping Cart)  </h4>
+    <p>Drag your items to purchase from th products list and drop them in the shopping cart. </p>
+    <p> This uses accordion, draggable, droppable and sortable functions of jquery.</p>
+    <div id="products">
+        <h4 class="ui-widget-header">What to Buy</h4>
+        <div id="catalog">
+            <h5><a href="#">Computers</a></h5>
+            <div>
+                <ul>
+                    <li>ASUS </li>
+                    <li>MacBook Air</li>
+                    <li>Surface Tablet</li>
+                </ul>
+            </div>
+            <h5><a href="#">DVD</a></h5>
+            <div>
+                <ul>
+                    <li>Gone Girl</li>
+                    <li>Interstellar</li>
+                    <li>Shamitabh</li>
+                </ul>
+            </div>
+            <h5><a href="#">Apple Products</a></h5>
+            <div>
+                <ul>
+                    <li>iPhone</li>
+                    <li>iPod</li>
+                    <li>iPad</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="cart">
+        <h4 class="ui-widget-header">Cart</h4>
+        <div class="ui-widget-content">
+            <ol>
+                <li class="placeholder">Add your items here</li>
+            </ol>
+        </div>
+    </div>
+    <p></p>
+    <div id="shoopingEnd">
+        <h4>Code Snippet :</h4>
+        <code>
+            &emsp;&emsp;$("#catalog").accordion();<br /><br/>
+            &emsp;&emsp;$("#catalog li").draggable({<br />
+            &emsp;&emsp;&emsp;appendTo: "body",<br />
+            &emsp;&emsp;&emsp;helper: "clone"<br />
+            &emsp;&emsp;});<br />
+            &emsp;&emsp;$("#cart ol").droppable({<br />
+            &emsp;&emsp;&emsp;activeClass: "ui-state-default",<br />
+            &emsp;&emsp;&emsp;hoverClass: "ui-state-hover",<br />
+            &emsp;&emsp;&emsp;accept: ":not(.ui-sortable-helper)",<br />
+            &emsp;&emsp;drop: function (event, ui) {<br />
+            &emsp;&emsp;&emsp;$(this).find(".placeholder").remove();<br />
+            &emsp;&emsp;&emsp;$("&lt;li&gt;&lt;/li&gt;").text(ui.draggable.text()).appendTo(this);<br />
+            &emsp;&emsp;}}).sortable({<br />
+            &emsp;&emsp;&emsp;&emsp;items: "li:not(.placeholder)",<br />
+            &emsp;&emsp;&emsp;&emsp;sort: function () {<br />
+            &emsp;&emsp;&emsp;&emsp;$(this).removeClass("ui-state-default");<br />
+            &emsp;&emsp;&emsp;}<br />
+            &emsp;&emsp;});<br />   
+        </code>
+    </div>
+    <hr />
+    
+    <h3> View Source : </h3>
+    <a href="../../fileview/Default.aspx?~/experiments/week03/week304.htm" target="_blank"> HTML </a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/css/week301.css" target="_blank"> CSS </a>
+    <p>
+        <h3> Reference :</h3>
+        <a href="http://api.jquery.com/" target="_blank"> jQuery API </a><br />
+        <a href="http://jqueryui.com/" target="_blank"> JQuery UI </a>
+    </p>
+
+    <hr />
+
+
+</body>
+</html>

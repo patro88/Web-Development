@@ -1,0 +1,17 @@
+﻿body {
+    background: #f4f4f2;
+    margin: auto;
+    margin: 0;
+    padding: 0;
+}
+
+
+body h1 {
+    text-align: center;
+}
+
+.container {
+    line-height: 30px;
+    width: 920px;
+    margin: auto;
+}

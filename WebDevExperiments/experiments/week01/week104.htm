@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> HTML APIs </title>
+    <link rel="stylesheet" href="../css/week101.css" />
+</head>
+<body>
+
+    <h1>HTML APIs</h1>
+    <hr />
+    <br />
+    <h3> Geo Location: </h3>	
+	<p> This demo is to get the location of the system and display it in a map holder.</p>
+	<p> The location is found by getCurrentPosition method of Javascript</p>
+	<code> &emsp;navigator.geolocation.getCurrentPosition(showPosition, showError); </code>
+	<p> The latitude and longitude positions are obtained from the position.</p>
+	<code> &emsp; var latlon = position.coords.latitude + "," + position.coords.longitude; </code>
+	<p> After this, the map image is obtained by querying the googleapis server with the coordinates data.</p>
+	<code>&emsp;var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+    +latlon+"&zoom=14&size=400x300&sensor=false";</code>
+	<p>The image is then placed on the required div</p>
+
+	<p id="demo">Click the button to get your coordinates.</p>
+	
+	<button onclick="getLocation()">Try It</button>
+
+	<div id="mapholder"></div>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+    +latlon+"&zoom=14&size=400x300&sensor=false";
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
+
+        <hr /><br/>
+	<p>Drag the image into the rectangle:</p>
+
+      <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+       <br>
+      <img id="drag1" src="../images/fb-icon.jpg" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+	<h3> Drag Drop : </h3>	
+	<p> The drag drop feature is implemented by writing some javascript functions.
+		the drag function sets the data transfer object of the environment </p>
+	<code>
+        &emsp;ev.dataTransfer.setData("text", ev.target.id);
+	</code>
+	<p> The drop event takes the data from teh environment and sets it to the target element based on the id.</p>
+	<code>
+        &emsp;ev.preventDefault();<br/>
+        &emsp;var data = ev.dataTransfer.getData("text");<br/>
+        &emsp;ev.target.appendChild(document.getElementById(data));<br/>
+	</code>
+	<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+        <hr /><br/>
+	
+
+    <p>
+       <h3> View Source : </h3> 
+        <a href="../../fileview/Default.aspx?~/experiments/week01/week104.htm" target="_blank"> HTML </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/css/week101.css" target="_blank"> CSS </a>
+    <p>
+       <h3> Reference :</h3><a href="http://www.w3schools.com/" target="_blank"> W3schools </a>
+    </p>
+
+    <hr />
+
+
+</body>
+</html>

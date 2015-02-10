@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Jquery and Ajax </title>
+    <link rel="stylesheet" href="../css/week301.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#ajaxdiv").load("week3_ajax.txt", function (responseTxt, statusTxt, xhr) {
+                    if (statusTxt == "success")
+                        alert("External content loaded successfully!");
+                    if (statusTxt == "error")
+                        alert("Error: " + xhr.status + ": " + xhr.statusText);
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <h1>Jquery and Ajax</h1>
+    <hr />
+    <h2> Description: </h2>
+    <p>
+        In this Experiment , I tried to load external content from server by ajax calls.
+        I have used ajax load() method. Also I used load method with the optional callback function. 
+        The callback function has following parameters:<br />
+        <ul>
+            <li>responseTxt - contains the resulting content if the call succeeds</li>
+            <li>statusTxt - contains the status of the call</li>
+            <li>xhr - contains the XMLHttpRequest object</li>
+        </ul>
+        In the function , I tested if the method returns a success or not. If it returns a success , I return a success 
+        alert message, Otherwise I return a failure alert.
+    </p>
+    <hr />
+    <h4> Ajax Load With Callback </h4>
+    <p> In this experiment, I loaded content from a file "week3_ajax.txt" onto a desired DOM element</p>
+    
+    <div id="ajaxdiv"><strong>Let jQuery AJAX Change This Text</strong></div>
+    <br />
+    <button>Get External Content</button>
+    <br />
+    <div>
+        <h4>Content in <u>"week3_ajax.txt"</u> file:</h4>
+        <code>
+            &lt;p&gt;&lt;strong>content in text file on server&lt;/strong&gt;&lt;/p&gt;<br />
+            &lt;p&gt;ajax content loaded&lt;/p&gt;
+        </code>
+        <h4>Code Snippet :</h4>
+        <code>
+     
+            &emsp;&emsp;$("button").click(function () {<br />
+            &emsp;&emsp;&emsp;$("#ajaxdiv").load("week3_ajax.txt", function (responseTxt, statusTxt, xhr) {<br />
+            &emsp;&emsp;&emsp;&emsp;if (statusTxt == "success")<br />
+            &emsp;&emsp;&emsp;&emsp;&emsp;alert("External content loaded successfully!");<br />
+            &emsp;&emsp;&emsp;&emsp;if (statusTxt == "error")<br />
+            &emsp;&emsp;&emsp;&emsp;&emsp;alert("Error: " + xhr.status + ": " + xhr.statusText);<br />
+            &emsp;&emsp;&emsp;});<br />
+            &emsp;&emsp;});<br />
+        </code>
+    </div>
+    <hr />
+    
+    <h3> View Source : </h3>
+    <a href="../../fileview/Default.aspx?~/experiments/week03/week303.htm" target="_blank"> HTML </a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/css/week301.css" target="_blank"> CSS </a>
+    <p>
+        <h3> Reference :</h3>
+        <a href="http://api.jquery.com/" target="_blank"> jQuery API </a><br />
+        <a href="http://www.w3schools.com/" target="_blank"> W3schools </a>
+    </p>
+
+    <hr />
+
+
+</body>
+</html>

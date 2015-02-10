@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Modify DOM using Jquery </title>
+    <link rel="stylesheet" href="../css/week301.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#appendItem").click(function () {
+                $("ol").append("<li class='extra' >Appended item</li>");
+            });
+            $("#prependItem").click(function () {
+                $("ol").prepend("<li class='extra' >Prepended item</li>");
+            });
+            $("#afterItem").click(function () {
+                $("ol").after("<p class='extra' >After OL</p>");
+            });
+            $("#beforeItem").click(function () {
+                $("ol").before("<p class='extra' >Before OL</p>");
+            });
+            $("#removeItem").click(function () {
+                $("li").remove(".extra");
+                $("p").remove(".extra");
+            });
+            $("#emptyItem").click(function () {
+                $("ol").empty();
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+    <h1>Modify DOM using Jquery</h1>
+    <hr />
+    <h2> Description: </h2>
+    <p>
+        In this Experiment , I have tried to modify the DOM elements. I used 
+        <code>append(), prepend(), after(), before(), emmpty(), remove() </code>
+        for adding or removing elements.<br />
+        Also I Learnt about <code>val(), attr(), text(), html() </code>for changing contents in DOM elements.
+        I haven't used these in the experiments though.
+    </p>
+    <br />
+
+    <h4> Add / Delete Elements </h4>
+    <div>
+        <p>Click on the buttons below to add , remove contents in the list</p>
+        <ol>
+            <li>First Item </li>
+            <li>Second Item </li>
+            <li>Third Item </li>
+            <li>Fourth Item </li>
+        </ol>
+        <button id="appendItem">Append List Item</button>
+        <button id="prependItem">Prepend List Item</button>
+        <button id="afterItem">After List Item</button>
+        <button id="beforeItem">Before List Item</button>
+        <button id="removeItem">Remove All Extra Item</button>
+        <button id="emptyItem">Empty List</button>
+    </div>
+    
+    <div>
+        <h4>Code Snippet :</h4>
+        <code>
+     
+            &emsp;&emsp;$("#appendItem").click(function () {<br />
+            &emsp;&emsp;&emsp;$("ol").append("&lt;li class='extra' &gt; Appended item&lt;/li&gt;");<br />
+            &emsp;&emsp;});<br />
+            &emsp;&emsp;$("#prependItem").click(function () {<br />
+            &emsp;&emsp;&emsp;$("ol").prepend("&lt;li class='extra'&gt;Prepended item&lt;/li&gt;");<br />
+            &emsp;&emsp;});<br />
+            &emsp;&emsp;$("#afterItem").click(function () {<br />
+            &emsp;&emsp;&emsp;$("ol").after("&lt;p class='extra'&gt;After OL&lt;/p&gt;");<br />
+            &emsp;&emsp;});<br />
+            &emsp;&emsp;$("#beforeItem").click(function () {<br />
+            &emsp;&emsp;&emsp;$("ol").before("&lt;p class='extra'&gt;Before OL&lt;/p&gt;");<br />
+            &emsp;&emsp;});<br />
+            &emsp;&emsp;$("#removeItem").click(function () {<br />
+            &emsp;&emsp;&emsp;$("li").remove(".extra");<br />
+            &emsp;&emsp;$("p").remove(".extra");<br />
+            &emsp;&emsp;});<br />
+            &emsp;&emsp;$("#emptyItem").click(function () {<br />
+            &emsp;&emsp;&emsp;$("ol").empty();<br />
+            &emsp;&emsp;});<br />
+
+        </code>
+    </div>
+    <hr />
+    
+    <h3> View Source : </h3>
+    <a href="../../fileview/Default.aspx?~/experiments/week03/week302.htm" target="_blank"> HTML </a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/css/week301.css" target="_blank"> CSS </a>
+    <p>
+        <h3> Reference :</h3>
+        <a href="http://api.jquery.com/" target="_blank"> jQuery API </a><br />
+        <a href="http://www.w3schools.com/" target="_blank"> W3schools </a>
+    </p>
+
+    <hr />
+
+
+</body>
+</html>

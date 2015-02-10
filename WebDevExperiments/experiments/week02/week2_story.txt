@@ -1,0 +1,7 @@
+﻿../../story/whatisnext.htm?../experiments/week02/week2_story.txt     What is Next?
+week201.htm                                                          Bootstrap Grid 
+week202.htm                                                          Bootstrap Tables
+week203.htm                                                          Bootstrap Forms
+week204.htm                                                          Bootstrap Buttons 
+week205.htm                                                          Bootstrap Helper classes 
+week2_story.txt                                                      The story file for this story

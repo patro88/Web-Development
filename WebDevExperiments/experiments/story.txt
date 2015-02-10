@@ -1,0 +1,5 @@
+﻿../story/whatisnext.htm?../experiments/	                   What is Next?
+../story/index.htm?../experiments/week01/week1_story.txt   Week1 - HTML5 and CSS
+../story/index.htm?../experiments/week02/week2_story.txt   Week2 - Bootstrap CSS
+../story/index.htm?../experiments/week03/week3_story.txt   Week3 - JQuery and JQueryUI
+story.txt                                                  The story file for this story

@@ -1,0 +1,108 @@
+﻿body {
+    background: #f4f4f2;
+    margin: auto;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+    body h1 {
+        text-align: center;
+    }
+
+fieldset {
+    margin: 30px;
+}
+
+#container {
+    line-height: 30px;
+}
+
+code {
+    background: #111;
+    color: white;
+    font-family: monospace;
+}
+
+#div1 {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+
+#lin_gradient {
+    height: 200px;
+    width: 300px;
+    background: -webkit-linear-gradient(red, blue);
+    float: left;
+}
+
+#rad_gradient {
+    margin-left: 30px;
+    height: 200px;
+    width: 300px;
+    background: -webkit-linear-gradient(180deg, red, blue);
+    float: left;
+}
+
+.snippet {
+    clear: both;
+}
+
+#transform, #trans div {
+    width: 100px;
+    height: 75px;
+    background-color: green;
+    border: 1px solid black;
+}
+#trans{
+    float:left;
+    margin-left:20px;
+}
+div#scaled {
+    -ms-transform: scale(2,2); /* IE 9 */
+    -webkit-transform: scale(2,2); /* Chrome, Safari, Opera */
+    transform: scale(2,2); /* Standard syntax */
+}
+div#translated {
+    -ms-transform: translate(100px,25px); /* IE 9 */
+   	-webkit-transform: translate(100px,25px); /* Chrome, Safari, Opera */
+    transform: translate(100px,25px);
+}
+div#rotated {
+     -ms-transform: rotate(30deg); /* IE 9 */
+    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+    transform: rotate(30deg);
+}
+div#skewed {
+   -ms-transform: skew(30deg,20deg); /* IE 9 */
+    -webkit-transform: skew(30deg,20deg); /* Chrome, Safari, Opera */
+    transform: skew(30deg,20deg);
+}
+
+#trans + hr{
+    clear:both;
+}
+
+#transition{
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s, height 2s, transform 2s;
+}
+#transition:hover {
+    width: 200px;
+    height: 200px;
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+.columns{
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+}

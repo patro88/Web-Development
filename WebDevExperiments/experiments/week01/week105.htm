@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> CSS Experiments</title>
+    <link rel="stylesheet" href="../css/week101.css" />
+</head>
+<body>
+
+    <h1> CSS Experiments </h1>
+    <hr /><br />	
+	<h3> Gradient Background :</h3>
+	<p> There are 2 types of gradient backgrounds in css. 
+		<ul><li>Linear gradients which go up/down/left/right/diagonally</li>
+		<li>Radial gradients defined by their center </li></ul></p>
+	<div id="lin_gradient"></div> 
+	<div id="rad_gradient"></div>
+<h3 class="snippet"> Code Snippet : </h3> 
+	<code>
+	&emsp;#lin_gradient {<br/>
+    &emsp;&emsp;height: 200px;<br/>
+    &emsp;&emsp;width: 300px;<br/>
+    &emsp;&emsp;background: -webkit-linear-gradient(red, blue); <br/>
+        &emsp;}<br/>
+</code>
+	<code>
+&emsp;#rad_gradient {<br/>
+    &emsp;&emsp;height: 200px;<br/>
+    &emsp;&emsp;width: 300px;<br/>
+    &emsp;&emsp;background: -webkit-linear-gradient(180deg, red, blue);  <br/>
+        &emsp;}<br/>
+</code>
+<hr /><br />
+
+	<h3> CSS Transformation Functions :</h3>
+	<div id="transform">This is a div element</div>
+	<div id= "trans">
+	<div id="translated">This is a translated div element</div>
+	<p>Translate</p>
+	<code> &emsp;#transform{<br/>
+		&emsp;&emsp;-webkit-transform: translate(100px,25px); }
+	</code></div> 
+
+	<div id= "trans">
+	<div id="rotated">This is a rotated div element</div>
+	<p>Rotate</p>
+	<code> &emsp;#transform{<br/>
+		&emsp;&emsp;-webkit-transform: rotate(30deg); }
+	</code></div> 
+
+	<div id= "trans">
+	<div id="scaled">This is a scaled div element</div>
+	<p>Scale</p>
+	<code> &emsp;#transform{<br/>
+		&emsp;&emsp;-webkit-transform: scale(2,2); }
+	</code>
+	</div> 
+
+	<div id= "trans">
+	<div id="skewed">This is a skewed div element</div>
+	<p>Skew</p>
+	<code> &emsp;#transform{<br/>
+		&emsp;&emsp;-webkit-transform: skew(30deg,20deg); }
+	</code>
+	</div> 
+	<hr /><br />
+
+	<h3> CSS Transitions :</h3>
+	<div id="transition">Hover over me to see transition</div>
+
+	<p>Multiple transitions, Code Snippet : </p>
+	<code> &emsp;#transition{<br/>
+		&emsp;&emsp;transition: width 2s, height 2s, transform 2s; }<br/>
+		&emsp;#transition:hover { <br/>
+    		&emsp;&emsp;transform: rotate(180deg);}<br/>
+}
+	</code>
+	<hr/><br/>
+<h3> Multiple columns in css :</h3>
+<div class="columns">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.
+</div>
+<h3> Code Snippet :</h3>
+<code>
+&emsp;.columns{<br/>
+&emsp;&emsp;column-count : 3;<br/>
+&emsp;&emsp;column-gap: 40px;<br/>
+&emsp;}</code>
+
+    <hr /><br />	
+       <h3> View Source : </h3> 
+        <a href="../../fileview/Default.aspx?~/experiments/week01/week105.htm" target="_blank"> HTML </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/css/week101.css" target="_blank"> CSS </a>
+    <p>
+       <h3> Reference :</h3><a href="http://www.w3schools.com/" target="_blank"> W3schools </a>
+    </p>
+
+    <hr />
+
+
+</body>
+</html>
