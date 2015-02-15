@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Angular JS - Movies App Extended </title>
+    <link rel="stylesheet" href="../css/week401.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="../js/week24.js"></script>
+
+
+</head>
+<body ng-app="form">
+    <div class="container" ng-controller="RecordController">
+        <h2>Angular JS - Movies List Extended</h2>
+        <hr />
+
+        <h2>Description</h2>
+        <p>
+        I have extended the previous experiument to include new event handlers in this experiment. 
+        I have added edit, delete and add functionalities. I have used the bootstrap button classes to improve th look and feel of the buttons and the table.
+        In this experiment, I learned to add events to buttons in angular js and check how they behave.
+        </p><br />
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Plot</th>
+                    <th>Genre</th>
+                    <th>&nbsp;</th>
+
+                </tr>
+                <tr>
+
+                    <td><input class="form-control" ng-model="newMovie.title" placeholder="Title" /></td>
+                    <td><input class="form-control" ng-model="newMovie.year" placeholder="Year" /></td>
+                    <td><input class="form-control" ng-model="newMovie.plot" placeholder="Plot" /></td>
+                    <td><input class="form-control" ng-model="newMovie.genre" placeholder="Genre" /></td>
+                    <td>
+                        <button ng-click="add()" class="btn btn-success glyphicon glyphicon-plus"></button>
+
+
+                        <button ng-click="updateForm()" class="btn btn-primary glyphicon glyphicon-ok"></button>
+                    </td>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="movie in movies">
+
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.year}}</td>
+                    <td>{{movie.plot}}</td>
+                    <td>{{movie.genre}}</td>
+                    <td>
+                        <button class="btn btn-danger glyphicon glyphicon-remove" ng-click="delete(movie)"></button>
+                        <button class="btn btn-warning glyphicon glyphicon-pencil" ng-click="edit(movie)"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr />
+        <br />
+        
+        <div>
+            <h3>Code Snippet</h3>
+            
+            <code>
+                $scope.edit = function (movie) {<br />
+                &emsp;console.log(movie);<br />
+                &emsp;$scope.newMovie = movie;<br />
+                }<br />
+            </code><br />
+            <p>
+                Edit function is used to bind the movie with the editor element so that 
+                whenever we edit it the changes reflect in the bound element also.
+            </p>
+            <code><br />
+                $scope.delete = function (movie) {<br />
+                &emsp;var index = $scope.movies.indexOf(movie);<br />
+                &emsp;$scope.movies.splice(index, 1);<br />
+                }<br />
+            </code><br />
+            <p>
+                The delete function removes the movie from the movies array in the scope.
+                It first finds the index of the movie to be delete. 
+                Then it deletes that element from the array using the splice method.
+            </p>
+            <code>
+                $scope.add = function () {<br />
+                &emsp;console.log($scope.newMovie);<br />
+                &emsp;var movie = {<br />
+                &emsp;&emsp;title: $scope.newMovie.title,<br />
+                &emsp;&emsp;year: $scope.newMovie.year,<br />
+                &emsp;&emsp;plot: $scope.newMovie.plot,<br />
+                &emsp;&emsp;genre: $scope.newMovie.genre,<br />
+                &emsp;};<br />
+                &emsp;$scope.movies.push(movie);<br />
+                }<br />
+            </code><br />
+            <p>
+                The add function is invoked when the plus button is clicked.
+                It adds the current movie to the existing list if any.
+            </p>
+
+            <code>
+                $scope.updateForm = function (movie) {<br />
+                &emsp;alert($scope.newMovie.title);<br />
+                }<br />
+
+            </code>
+            <p>
+                The update function is just a method to be used to update the record in the database. 
+                For now, I am just displaying an alert showing the movie title.
+            </p>
+        </div>
+        <hr />
+
+        <h3> View Source : </h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week04/week404.htm" target="_blank"> HTML </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/css/week401.css" target="_blank"> CSS </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/js/week24.js" target="_blank"> JS </a>
+        <p>
+            <h3> Reference :</h3>
+            <a href="https://angularjs.org/" target="_blank"> Angular JS </a><br />
+        </p>
+    </div>
+</body>
+
+</html>

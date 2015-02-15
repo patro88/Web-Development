@@ -1,0 +1,7 @@
+﻿../../story/whatisnext.htm?../experiments/week04/week4_story.txt     What is Next?
+week401.htm                                                          Angular JS - Introduction
+week402.htm                                                          Angular JS - Calculate App
+week403.htm                                                          Angular JS - Movies List
+week404.htm                                                          Angular JS - Movies List Extended
+week405.htm                                                          Angular JS - Some new features 
+week4_story.txt                                                      The story file for this story

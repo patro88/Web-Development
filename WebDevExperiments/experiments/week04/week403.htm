@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Angular JS - Movie App </title>
+    <link rel="stylesheet" href="../css/week401.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="../js/week24.js"></script>
+
+
+</head>
+<body ng-app="form">
+    <div class="container" ng-controller="RecordController">
+        <h1>Angular JS - Movie List</h1>
+        <hr />
+        <h2>Description:</h2>
+        <p>
+            In this experiment, I have have tried implementing a simple retrieval of data from json object in scope of angular js.
+            The data is hard coded by me. I have used the ng-repeat property to display repeated data of the same type.
+            Also, I have used the bootstrap styles.
+            <br />
+
+        </p><hr />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Plot</th>
+                    <th>Genre</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="movie in movies">
+
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.year}}</td>
+                    <td>{{movie.plot}}</td>
+                    <td>{{movie.genre}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr />
+        <br />
+
+        <div ng-non-bindable>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+
+            </p><br />
+            <code>
+                &lt;tr ng-repeat="movie in movies"&gt;<br />
+                &emsp;&lt;td&gt;{{movie.title}}&lt;/td&gt;<br />
+                &emsp;&lt;td&gt;{{movie.year}}&lt;/td&gt;<br />
+                &emsp;&lt;td&gt;{{movie.plot}}&lt;/td&gt;<br />
+                &emsp;&lt;td&gt;{{movie.genre}}&lt;/td&gt;<br />
+            </code>
+            <p>Note the use of the angular parameter <code> ng-repeat </code>. This is used to iterate over the list of movies in the scope of the model</p>
+
+            <code>
+                var movie1 = {<br />
+                &emsp;title: "Star Wars: Empire at War",<br />
+                &emsp;year: "2006",<br />
+                &emsp;plot: "The game is set before the Battle of Yavin, while the Empire is still constructing the Death Star. The campaign goes through the events before this, on both the Rebel and Imperial side.",<br />
+                &emsp;genre: "Sci-Fi",<br />
+                };<br />
+                ...
+                movie2, movie3 , movie4<br />
+                var movies = [movie1, movie2, movie3, movie4];<br />
+                $scope.movies = movies;<br />
+
+            </code>
+            <p>The movies array is initialized and assigned to the scope with name as 'movies'</p>
+
+            <hr />
+        </div>
+        <h3> View Source : </h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week04/week403.htm" target="_blank"> HTML </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/css/week401.css" target="_blank"> CSS </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/js/week24.js" target="_blank"> JS </a>
+        <p>
+            <h3> Reference :</h3>
+            <a href="https://angularjs.org/" target="_blank"> Angular JS </a><br />
+        </p>
+
+        <hr />
+    </div>
+</body>
+
+</html>

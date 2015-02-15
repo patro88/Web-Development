@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Angular JS - 2nd Example</title>
+    <link rel="stylesheet" href="../css/week402.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="../js/week14.js"></script>
+
+
+</head>
+<body ng-app="calculateApp" ng-controller="calculateController">
+    <div class="container">
+        <h1> Angular JS - Calculate App </h1>
+        <hr />
+        <h2> Description: </h2>
+        <p>
+            In this example, I coded an order form with a total price updated in real time,
+            using another one of Angular’s useful features – filters.
+            Filters let you modify models and can be chained together using the pipe character |.
+            In the example below, I am using the currency filter, to turn a number into a properly formatted price,
+            complete with a dollar sign and cents.
+        </p>
+        <hr />
+        <form ng-app="calculateApp" ng-controller="calculateController">
+
+            <h1>Courses Taken: </h1>
+
+            <ul>
+                <!-- Loop through the services array, assign a click handler, and set or
+                remove the "active" css class if needed -->
+                <li ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{active:service.active}">
+                    <!-- Notice the use of the currency filter, it will format the price -->
+                    {{service.name}} <span>{{service.price | currency}}</span>
+                </li>
+            </ul>
+
+            <div class="total">
+                <!-- Calculate the total price of all chosen services. Format it as currency. -->
+                Total: <span>{{total() | currency}}</span>
+            </div>
+
+        </form>
+
+        <br />
+        <div>
+            <h4>Code Snippet :</h4>
+            <code>
+                $scope.services = [
+                {
+                name: 'Web Development',
+                price: 1350,
+                active: false
+                }, {
+                name: 'Algorithm',
+                price: 1200,
+                active: false
+                }, {
+                name: 'Databases',
+                price: 1250,
+                active: false
+                }, {
+                name: 'Artificial Intelligence',
+                price: 1400,
+                active: false
+                }
+                ]
+            </code><br /><br />
+            <p>
+                &emsp;The JSON format of the data stored.
+            </p>
+            <code ng-non-bindable>
+                &emsp;&emsp;{{service.name}} <span>{{service.price | currency}}</span><br /><br />
+                &emsp;&emsp;Total: &lt;span&gt;{{total() | currency}}&lt;/span &gt;{
+            </code><br /><br />
+            <p>
+                &emsp; The above lines display the service data in the scope. I have used a filter here called <code>currency</code>
+                to convert amount into currecy.<br /><br />
+                <code ng-non-bindable>
+                    &emsp;&emsp;  $scope.total = function () {<br />
+                    &emsp;&emsp;  var total = 0;<br />
+                    &emsp;&emsp;  angular.forEach($scope.services, function (s) {<br />
+                    &emsp;&emsp;  if (s.active) {<br />
+                    &emsp;&emsp;&emsp;&emsp; total += s.price;
+                    &emsp;&emsp;  }
+                    });
+                </code><br /><br />
+            <p>
+                &emsp;The above code calculates the total amount from the active courses.
+                For this, It uses the angular <code>forEach()</code> function to iterate over the courses;
+                and if the course is active , it adds the price to the total.
+            </p>
+
+        </div>
+        <hr />
+
+
+        <h3> View Source : </h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week04/week402.htm" target="_blank"> HTML </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/css/week402.css" target="_blank"> CSS </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/js/week14.js" target="_blank"> JS </a>
+        <p>
+            <h3> Reference :</h3>
+            <a href="https://angularjs.org/" target="_blank"> Angular JS </a><br />
+        </p>
+
+        <hr />
+    </div>
+    
+
+
+</body>
+</html>
