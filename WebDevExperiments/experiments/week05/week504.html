@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title> Google Book API with Angular Routing </title>
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+    <link rel="stylesheet" href="../css/week500.css">
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.min.js"></script>
+    <script src="../js/week504.js"></script>
+</head>
+<body ng-app="BookApp">
+
+    <div class="container" ng-controller="BookController">
+        <h1>
+            Google Book API with Angular Routing
+        </h1>
+        <hr />
+        <h2>Description:</h2>
+        <p>
+           This experiment is the final experiment for the Google Books API. I have used angular Routing in this experiment.
+           I added a favourites section and allowed the user to add books to his favorites. Now when the user clicks the favorite tab, 
+            he sees all his favorite books. Also , I tried the <code>ng-class</code> directive of angular to change the color of the 
+            favorite button.
+            <br /><br />
+            I added two pages each for search and favorite functionalities. In the main html, I added <code>ng-view</code> directive to tell angular that the view lives in other pages.
+            When I click the search button, I display the search page and when I click the fav button I display the fav page.
+
+        </p>
+
+        <h3> Searching A Book:</h3>
+        <div class="input-group">
+            <input type="text" ng-model="searchTitle" class="form-control" aria-label="...">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Choose Action <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li><a href="#" ng-click="$event.preventDefault();searchBooksByTitle()">By Title </a></li>
+                    <li><a href="#" ng-click="$event.preventDefault();searchBooksByAuthor()">By Author</a></li>
+                    <li><a href="#" ng-click="$event.preventDefault();searchBooksByPublisher()">By Publisher</a></li>
+                    <li><a href="#" ng-click="$event.preventDefault();searchBooksByIsbn()">By ISBN</a></li>
+                </ul>
+            </div><!-- /btn-group -->
+        </div><!-- /input-group -->
+        <br />
+        <div ng-show="books">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Books API</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#/search">Search Results</a></li>
+                            <li><a href="#/fav">Favourites</a></li>
+                        </ul>
+                    
+                    </div><!--/.nav-collapse -->
+                </div><!--/.container-fluid -->
+            </nav>
+
+
+        </div>
+
+        <div ng-view>
+        </div>
+        
+        <hr />
+
+        <div ng-non-bindable>
+            <h3>Code Snippet</h3>
+
+            <div class="label-info">HTML Code</div><br />
+            <p>
+                In the HTML, I have added a bootstrap navbar with search and favorites button. 
+                A div with <code> ng-view </code> directive is added.
+                The links search and favorite are linked to the routings <code>/search</code> and <code>/fav</code>.
+
+            </p>
+            <code>
+                &lt;div ng-view&gt;&lt;/&gt;<br /><br />
+                &emsp;&lt;ul class="nav navbar-nav"&gt;<br />
+                &emsp;&emsp;&lt;li&gt;&lt;a href="#/search">Search Results&lt;/a&gt;&lt;/li&gt;<br />
+                &emsp;&emsp;&lt;li&gt;&lt;a href="#/fav">Favourites&lt;/a&gt;&lt;/li&gt;<br />
+                &emsp;&lt;/ul&gt;<br /><br />
+
+            </code>
+            <p>
+                In the search page I added favorite button. The favorite button when clicked changes color based on the presence in the favorites array.<br />
+            </p>
+            <code>
+                &lt;button ng-click="addToFavorites(book, $index)" class="btn" ng-class="{'btn-info' : book.sss == undefined ,'btn-danger' : book.sss == $index}"&gt;<br />
+                    &emsp;&lt;span class="glyphicon glyphicon-star"&gt;&lt;/span&gt;<br />
+                &lt;/button&gt;<br /><br />
+            </code>
+
+            <div class="label-info">Javascript Code</div><br />
+            <p>
+                In the Javascript page, in addition to the previous code, I have added a routerProvider.
+                Also , I added functionality for favorites button.
+            </p>
+            <code>
+                var app = angular.module("BookApp", ["ngRoute"]);<br /><br />
+
+                app.config(['$routeProvider',<br />
+                &emsp;function ($routeProvider) {<br />
+                &emsp;&emsp;$routeProvider.<br />
+                &emsp;&emsp;when('/search', {<br />
+                &emsp;&emsp;&emsp;templateUrl: 'partials/search.html'<br />
+                
+                &emsp;&emsp;}).<br />
+                &emsp;&emsp;when('/fav', {<br />
+                &emsp;&emsp;&emsp;templateUrl: 'partials/favs.html'<br />
+                &emsp;&emsp;}).<br />
+                &emsp;&emsp;otherwise({<br />
+                &emsp;&emsp;&emsp;redirectTo: '/search'<br />
+                &emsp;&emsp;});<br />
+                &emsp;}]);<br />
+
+                ...
+
+                $scope.favoriteBooks = [];<br /><br />
+
+                $scope.addToFavorites = function (book, i) {<br />
+                &emsp;$scope.books.items[i].sss = i;<br />
+                &emsp;var index = $scope.favoriteBooks.indexOf(book);<br />
+                &emsp;if (index != -1) {<br />
+                &emsp;&emsp;$scope.favoriteBooks.splice(index, 1);<br />
+                &emsp;} else {<br />
+                &emsp;&emsp;book.isFavorite = 'true';<br />
+                &emsp;&emsp;$scope.favoriteBooks.push(book);<br />
+                &emsp;}<br />
+                }<br /><br />
+                
+            </code>
+        </div>
+
+        <hr />
+        <h3> View Source : </h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week05/week504.html" target="_blank"> Main HTML </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week05/partials/search.html" target="_blank"> Partials(Search) </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week05/partials/favs.html" target="_blank"> Partials(Favorite) </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/css/week500.css" target="_blank"> CSS </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/js/week504.js" target="_blank"> JS </a>
+        <p>
+            <h3> Reference :</h3>
+            <a href="https://angularjs.org/" target="_blank"> Angular JS </a><br />
+        </p>
+
+        <hr />
+
+    </div>
+    
+
+</body>
+</html>

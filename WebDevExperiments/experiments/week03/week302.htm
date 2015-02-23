@@ -14,7 +14,7 @@
     <hr />
     <h2> Description: </h2>
     <p>
-        In this Experiment , I have tried to modify the DOM elements. I used 
+        In this Experiment , I have tried to modify the DOM elements. I used
         <code>append(), prepend(), after(), before(), emmpty(), remove() </code>
         for adding or removing elements.<br />
         Also I Learnt about <code>val(), attr(), text(), html() </code>for changing contents in DOM elements.
@@ -38,35 +38,73 @@
         <button id="removeItem">Remove All Extra Item</button>
         <button id="emptyItem">Empty List</button>
     </div>
-    
+
     <div>
         <h4>Code Snippet :</h4>
+        
         <code>
-     
+
             &emsp;&emsp;$("#appendItem").click(function () {<br />
             &emsp;&emsp;&emsp;$("ol").append("&lt;li class='extra' &gt; Appended item&lt;/li&gt;");<br />
             &emsp;&emsp;});<br />
+
+        </code>
+        <p>
+            <strong>Description: </strong> The code is used to append the <code> li</code> to the ordered list.
+            By appending, we add the element to souce list at the end.<br />
+        </p>
+        <code>
             &emsp;&emsp;$("#prependItem").click(function () {<br />
             &emsp;&emsp;&emsp;$("ol").prepend("&lt;li class='extra'&gt;Prepended item&lt;/li&gt;");<br />
             &emsp;&emsp;});<br />
+
+        </code>
+        <p>
+            <strong>Description: </strong> The code is used to prepend the <code> li</code> to the ordered list.
+            By prepending, we add the element to teh source list at the start.<br />
+        </p>
+        <code>
             &emsp;&emsp;$("#afterItem").click(function () {<br />
             &emsp;&emsp;&emsp;$("ol").after("&lt;p class='extra'&gt;After OL&lt;/p&gt;");<br />
             &emsp;&emsp;});<br />
+
+        </code>
+        <p>
+            <strong>Description: </strong> The code is used to append the <code> li</code> after the ordered list.
+            By doing this, we add the element after the end of the source element.<br />
+        </p>
+        <code>
             &emsp;&emsp;$("#beforeItem").click(function () {<br />
             &emsp;&emsp;&emsp;$("ol").before("&lt;p class='extra'&gt;Before OL&lt;/p&gt;");<br />
             &emsp;&emsp;});<br />
+
+        </code>
+        <p>
+            <strong>Description: </strong> The code is used to append the <code> li</code> before the ordered list.
+            By doing this, we add the element before the start of the source element.<br />
+        </p>
+        <code>
             &emsp;&emsp;$("#removeItem").click(function () {<br />
             &emsp;&emsp;&emsp;$("li").remove(".extra");<br />
             &emsp;&emsp;$("p").remove(".extra");<br />
             &emsp;&emsp;});<br />
+        </code>
+        <p>
+            <strong>Description: </strong> The code is used to remove the desired element completely from the DOM.<br />
+        </p>
+        <code>
+
             &emsp;&emsp;$("#emptyItem").click(function () {<br />
             &emsp;&emsp;&emsp;$("ol").empty();<br />
             &emsp;&emsp;});<br />
 
         </code>
+        <p>
+            <strong>Description: </strong> The code is used to empty all contents of the desired element. This includes all its sub elements.<br />
+        </p>
     </div>
     <hr />
-    
+
     <h3> View Source : </h3>
     <a href="../../fileview/Default.aspx?~/experiments/week03/week302.htm" target="_blank"> HTML </a><br />
     <a href="../../fileview/Default.aspx?~/experiments/css/week301.css" target="_blank"> CSS </a>

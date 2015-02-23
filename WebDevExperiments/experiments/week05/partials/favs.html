@@ -1,0 +1,34 @@
+﻿<div ng-show="favoriteBooks">
+    <h3>Your Favorites:</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Title</td>
+                <td>Publisher</td>
+                <td>Published Date</td>
+                <td>Authors</td>
+                <td colspan="2">Description</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="book in favoriteBooks">
+                <td>{{book.volumeInfo.title}}</td>
+                <td>{{book.volumeInfo.publisher}}</td>
+                <td>{{book.volumeInfo.publishedDate}}</td>
+                <td>
+                    <span ng-repeat="author in book.volumeInfo.authors">
+                        {{author}}
+                    </span>
+
+                </td>
+                <td>
+                    <img class="poster" ng-src="{{book.volumeInfo.imageLinks.smallThumbnail}}" />
+
+                </td>
+                <td>{{book.volumeInfo.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>

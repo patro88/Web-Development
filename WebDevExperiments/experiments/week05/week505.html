@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-animate.min.js"></script>
+    <script src="../js/week505.js"></script>
+    <link rel="stylesheet" href="../css/week500.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body ng-app="myApp">
+    <div class="container" ng-controller="myController">
+        <h2>A small animation experiment</h2>
+        <hr />
+        <div>
+            <button ng-click="addItem()" class="btn btn-primary">Add</button>
+            <button ng-click="clearItems()" class="btn btn-primary">Clear</button>
+            <hr />
+            <button class="btn btn-danger" ng-repeat="item in items" ng-click="removeItem($index)">
+                {{item.title}}
+            </button>
+        </div>
+        <br />
+        <h3><u>About the Experiment</u></h3>
+        <p>
+            In this experiment, I make use of Animation in AngularJs using
+            ng-animate and ng-leave which help in performing some basic animations
+            on the DOM elements.
+
+            When the Add button is clicked, a list of 10 buttons are added to the DOM.
+            As these elements are being added they are given a class of ng-enter initially
+            which has opacity=0.The element is given a class of ng-enter-active once it
+            is fully available.</p>
+        <p>
+            Similarly when we click, the Clear button or any item button these elements
+            are being removed from the DOM at which point the element is given the ng-leave and it
+            transitions to the ng-leave-active at which point the element is invisible. <br />
+
+        </p><hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                Here, I've initially loaded the AngularJS module using <code>.module</code> function in the js file and linking it using <code>ng-app</code> in the HTML file.
+                I also use the another module called <code>ng-animate</code> which depends on my "myApp" module.
+                Using the <code>app</code> namespace and the <code>controller</code> function, linking the <code>ng-controller</code> myController in the HTML page, I then declare a function with <code>$scope</code>
+                parameter.  I've declared two main functions <code>addItem</code> and <code>clearItem</code> to handle the items to be added and cleared.
+            </p><br />
+            <div class="label-info">Javascript Code</div><br />
+            <code>
+                
+                var app = angular.module("myApp", ['ngAnimate']);<br />
+
+
+                app.controller("myController", function myContoller($scope) {<br />
+
+                $scope.items = []; // empty array<br />
+                $scope.addItem = function () {<br />
+
+                for (i = 10; i--;) { // add 10 items<br />
+                $scope.items.push({ 'title': 'item' + i })<br />
+                }<br />
+                }<br />
+
+                $scope.clearItems = function () {<br />
+                $scope.items = [];<br />
+
+                }<br />
+                $scope.removeItem = function (index) {<br />
+                $scope.items.splice(index, 1);  clear all the items<br />
+                }<br />
+
+                });<br /><br />
+                </code>
+                <div class="label-info">CSS Code</div><br />
+            <code>
+                .ng-enter<br />
+                {<br />
+                transition:0.75s;<br />
+                opacity:0;<br />
+                }<br />
+                .ng-enter-active<br />
+                {<br />
+                opacity:1;<br />
+                }<br />
+                .ng-enter-stagger<br />
+                {<br />
+                transition-delay:0.1s;<br />
+                }<br />
+                .ng-leave-stagger<br />
+                {<br />
+                transition-delay:0.1s;<br />
+                }<br />
+                .ng-leave<br />
+                {<br />
+                transition:0.75s;<br />
+                opacity:1;<br />
+                }<br />
+                .ng-leave-active<br />
+                {<br />
+                opacity:0;<br />
+                }
+            </code>
+            <hr />
+        </div>
+        <h3> View Source : </h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week05/week505.html" target="_blank"> HTML </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/css/week500.css" target="_blank"> CSS </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/js/week505.js" target="_blank"> JS </a>
+        <p>
+            <h3> Reference :</h3>
+            <a href="https://angularjs.org/" target="_blank"> Angular JS </a><br />
+        </p>
+
+        <hr />
+    </div>
+</body>
+</html>

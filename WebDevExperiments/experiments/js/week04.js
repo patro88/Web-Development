@@ -6,7 +6,7 @@ app.controller("personController", function ($scope) {
 
 
 $(function () {
-    $("a").click(function (e) {
+    $(".non-click a").click(function (e) {
         e.preventDefault();
         e.stopPropagation();
     });

@@ -1,0 +1,7 @@
+﻿../../story/whatisnext.htm?../experiments/week05/week5_story.txt     What is Next?
+week501.html                                                          Google Book API - Normal Search
+week502.html                                                          Google Book API - Different Search Options
+week503.html                                                          Adding ng-show directive 
+week504.html                                                          Angular Routing
+week505.html                                                          A small animation experiment
+week5_story.txt                                                      The story file for this story

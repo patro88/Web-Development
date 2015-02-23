@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title> Google Book API </title>
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/week500.css">
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.min.js"></script>
+    <script src="../js/week501.js"></script>
+</head>
+<body ng-app="BookApp">
+
+    <div class="container" ng-controller="BookController">
+        <h1>
+            Google Book API - Normal Search
+        </h1>
+        <hr />
+        <h2>Description:</h2>
+        <p>
+            This week I will be using the google books api to develop a bookStore application.
+            I want to develop a bookstore aplication with simple search of books by title, author, isbn number, etc.
+            I will be requesting only those data for which authorization is not required.
+            Later I can expand this application to store specific inforation like favourites list and request information based on a key.
+            <br />
+            In this experiment, I am exploring this google's API.
+            This experiment is just an overview of the api I will be using in the application.
+        </p>
+
+        <h3> Searching A Book:</h3>
+        <div class="input-group">
+            <input type="text" ng-model="searchTitle" class="form-control" placeholder="Search Text ...">
+            <span class="input-group-btn">
+                <button ng-click="searchBooks()" class="btn btn-default" type="button">Search!</button>
+            </span>
+        </div>
+        <h3>Results:</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Title</td>
+                    <td>Publisher</td>
+                    <td>Published Date</td>
+                    <td colspan="2">Description</td>
+                    <td>Retail Price</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="book in books.items">
+                    <td>{{book.volumeInfo.title}}</td>
+                    <td>{{book.volumeInfo.publisher}}</td>
+                    <td>{{book.volumeInfo.publishedDate}}</td>
+                    <td>
+                        <img class="poster" ng-src="{{book.volumeInfo.imageLinks.smallThumbnail}}" />
+
+                    </td>
+                    <td>{{book.volumeInfo.description}}</td>
+                    <td>{{book.saleInfo.retailPrice.amount}} {{book.saleInfo.retailPrice.currencyCode}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr />
+        <div ng-non-bindable>
+            <h3>Code Snippet</h3>
+
+            <div class="label-info">HTML Code</div><br />
+            <p>
+                In the HTML page, I have used a BookApp as an angular app and BookController as its controller.
+                Also, I have iterated over a scope variable and displayed its values using the {{ }} (double curly braces)
+                I have used the directives like ng-click, ng-model and ng-repeat.
+            </p>
+            <code>
+                &lt;body ng-app="BookApp"&gt;<br />
+                &lt;div class="container" ng-controller="BookController" &gt; <br /><br />
+                &lt;tr ng-repeat="book in books.items"&gt;<br />
+                &emsp;&lt;td&gt;{{book.volumeInfo.title}}&lt;/td&gt;<br />
+                &emsp;&lt;td&gt;{{book.volumeInfo.publisher}}&lt;/td&gt;<br />
+                &emsp;&lt;td&gt;{{book.volumeInfo.publishedDate}}&lt;/td&gt;<br />
+                &emsp;&lt;td&gt;<br />
+                &emsp;&emsp;&lt;img class="poster" ng-src="{{book.volumeInfo.imageLinks.smallThumbnail}}" /&gt;<br />
+
+                &emsp;&lt;/td&gt;<br />
+                &emsp;&lt;td&gt;{{book.volumeInfo.description}}&lt;/td&gt;<br />
+                &emsp;&lt;td&gt;{{book.saleInfo.retailPrice.amount}} {{book.saleInfo.retailPrice.currencyCode}}&lt;/td&gt;<br />
+                &lt;/tr&gt;<br /><br />
+
+            </code>
+
+            <div class="label-info">Javascript Code</div><br />
+            <p>
+                In the Javascript page, I have defined the BookApp, BookController and the function related to search.
+
+            </p>
+            <code>
+
+                var app = angular.module("BookApp", []);<br />
+
+                app.controller("BookController", function ($scope, $http) {<br /><br />
+
+                &emsp;$scope.searchBooks = function () {<br />
+                &emsp;&emsp;var title = $scope.searchTitle;<br />
+                &emsp;&emsp;$http.jsonp("https://www.googleapis.com/books/v1/volumes?q=" + title + "&callback=JSON_CALLBACK")<br />
+                &emsp;&emsp;.success(function (response) {<br />
+                &emsp;&emsp;$scope.books = response;<br />
+                &emsp;})<br />
+                }<br />
+                });<br /><br />
+            </code>
+        </div>
+
+        <hr />
+        <h3> View Source : </h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week05/week501.html" target="_blank"> HTML </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/css/week500.css" target="_blank"> CSS </a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/js/week501.js" target="_blank"> JS </a>
+        <p>
+            <h3> Reference :</h3>
+            <a href="https://angularjs.org/" target="_blank"> Angular JS </a><br />
+        </p>
+
+        <hr />
+
+
+
+    </div>
+
+
+</body>
+</html>

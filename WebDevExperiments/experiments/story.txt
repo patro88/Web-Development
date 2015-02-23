@@ -3,4 +3,5 @@
 ../story/index.htm?../experiments/week02/week2_story.txt   Week2 - Bootstrap CSS
 ../story/index.htm?../experiments/week03/week3_story.txt   Week3 - JQuery and JQueryUI
 ../story/index.htm?../experiments/week04/week4_story.txt   Week4 - Angular JS
+../story/index.htm?../experiments/week05/week5_story.txt   Week5 - Angular JS Routing
 story.txt                                                  The story file for this story

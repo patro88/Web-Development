@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title> ng-Show directive</title>
+        <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+        <link rel="stylesheet" href="../css/week500.css">
+
+        <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="../bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/angular-route.min.js"></script>
+        <script src="../js/week503.js"></script>
+    </head>
+    <body ng-app="BookApp">
+
+        <div class="container" ng-controller="BookController">
+            <h1>
+                Adding ng-show directive
+            </h1>
+            <hr />
+            <h2>Description:</h2>
+            <p>
+                This experiment is extended from experiment 2. Here I tried to introduce the <code>ng-show</code> angular directive.
+                The ngShow directive shows or hides the given HTML element based on the expression provided to the ngShow attribute.
+                I tried to show the results section only when there is some valid search.
+            </p>
+
+            <h3> Searching A Book:</h3>
+            <div class="input-group">
+                <input type="text" ng-model="searchTitle" class="form-control" aria-label="...">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Choose Action <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                        <li><a href="#" ng-click="$event.preventDefault();searchBooksByTitle()">By Title </a></li>
+                        <li><a href="#" ng-click="$event.preventDefault();searchBooksByAuthor()">By Author</a></li>
+                        <li><a href="#" ng-click="$event.preventDefault();searchBooksByPublisher()">By Publisher</a></li>
+                        <li><a href="#" ng-click="$event.preventDefault();searchBooksByIsbn()">By ISBN</a></li>
+                    </ul>
+                </div><!-- /btn-group -->
+            </div><!-- /input-group -->
+
+            <div ng-show="books">
+                <h3>Results:</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>Title</td>
+                            <td>Publisher</td>
+                            <td>Published Date</td>
+                            <td>Authors</td>
+                            <td colspan="2">Description</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="book in books.items">
+                            <td>{{book.volumeInfo.title}}</td>
+                            <td>{{book.volumeInfo.publisher}}</td>
+                            <td>{{book.volumeInfo.publishedDate}}</td>
+                            <td>
+                                <span ng-repeat="author in book.volumeInfo.authors">
+                                    {{author}}
+                                </span>
+
+                            </td>
+                            <td>
+                                <img class="poster" ng-src="{{book.volumeInfo.imageLinks.smallThumbnail}}" />
+
+                            </td>
+                            <td>{{book.volumeInfo.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+            <hr />
+            <div ng-non-bindable>
+                <h3>Code Snippet</h3>
+
+                <div class="label-info">HTML Code</div><br />
+                <p>
+                    In the HTML, I have added <code>ng-show</code> to the div that displays the results.
+                </p>
+                <code>
+                    &emsp;&lt;div ng-show="books"&gt;<br />
+                    &emsp;&emsp;&lt;h3&gt;Results:&lt;/h3&gt;<br />
+                    &emsp;&emsp;&emsp;&lt;table class="table table-striped"&gt;<br />
+
+                            <br />
+                            <br />
+
+                </code>
+
+                <div class="label-info">Javascript Code</div><br />
+                <p>
+                    In the Javascript page, there are no changes with respect to previous experiment.
+                </p>
+            </div>
+
+            <hr />
+            <h3> View Source : </h3>
+            <a href="../../fileview/Default.aspx?~/experiments/week05/week503.html" target="_blank"> HTML </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week500.css" target="_blank"> CSS </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/js/week503.js" target="_blank"> JS </a>
+            <p>
+                <h3> Reference :</h3>
+                <a href="https://angularjs.org/" target="_blank"> Angular JS </a><br />
+            </p>
+
+            <hr />
+
+
+
+        </div>
+
+    </body>
+</html>
