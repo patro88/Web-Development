@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title> Node JS with Angular JS </title>
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            Node JS with Angular JS
+        </h1>
+        <hr />
+        <h2>Description:</h2>
+        <p>
+            In this experiment I tried to add angular JS functionality to Node JS. This experiment uses the Json data received from the server 
+            and displays it in a table using the <code> ng-repeat</code> functinality of angular. The html data is displayed in the index.html client page.
+            This demonstrates a simple client-server model.
+
+        </p>
+        <hr />
+        <h3>Sample Book API :</h3>
+
+        <div>
+            <div style="margin: 20px;">
+                Click<a href="http://nodejs-shakti200.rhcloud.com/"> <strong>here</strong> </a> to launch the Book API.
+            </div>
+            <div>
+                <img src="../images/image605.jpg" class="img-thumbnail" />
+            </div>
+        </div>
+
+
+        <hr />
+        <div class="container-fluid">
+            <h3>Code Snippet</h3>
+
+            <div class="label-info">Server.js Code : </div><br />
+            <p>
+                In server.js , I added public directory use. It serves static content for the app from the “public” directory in the application directory.
+                Please look into <a href="week603.html">Experiment 603</a>  for other details.
+            </p>
+            <code>
+
+                app.use(express.static(__dirname + '/public'));<br />
+                <br />
+            </code>
+            <p>
+                Also, I added urls to retrieve books based on the id (index) provided in the url, Ex:  <code>/api/book/2</code>.
+                The index is obtained by <code> req</code> parameter using the <code> req.param.id</code> function.
+            </p>
+            <code>
+                app.get('/api/book/:id', function (req, res) {<br />
+                res.json(books[req.params.id]);<br />
+                });<br />
+                <br />
+                <br />
+            </code>
+
+            <div class="label-info">Client side Code : </div><br />
+            <p>
+                In the client side, I have added app.js for the angular behaviour and added the html code in index.html.
+                In app.js , I initialized the app module, its controller and the function to get the data.
+            </p>
+            <code>
+
+                var app = angular.module("CMApp", []);<br /><br />
+                app.controller("CMController",<br />
+                &emsp;function ($scope, $http) {<br />
+                &emsp;&emsp;$http.get("/api/book")<br />
+                &emsp;.success(function (response) {<br />
+                &emsp;&emsp;$scope.books = response;<br />
+                &emsp;});<br />
+                });<br />
+                <br />
+            </code>
+            <p>
+                In index.html , I iterated over the model books and displayed data in a table.
+            </p>
+            <code>
+                &lt;tr ng-repeat="book in books" &gt;<br />
+                &emsp;&lt;td>{{book.name}} &lt;/td&gt;<br />
+                &emsp;&lt;td>{{book.isbn}} &lt;/td&gt;<br />
+                &emsp;&lt;td>{{book.price}} &lt;/td&gt;<br />
+                &lt;/tr&gt;<br /><br />
+            </code>
+            <hr />
+            <h3> View Source : </h3>
+            <a href="../../fileview/Default.aspx?~/experiments/week06/week604.html" target="_blank"> HTML </a><br />
+            <p>
+                <h3> Reference :</h3>
+                <a href="http://nodejs.org/" target="_blank"> NodeJS </a><br />
+                <a href="https://angularjs.org/" target="_blank"> Angular JS </a><br />
+            </p>
+
+            <hr />
+
+
+        </div>
+
+
+</body>
+</html>

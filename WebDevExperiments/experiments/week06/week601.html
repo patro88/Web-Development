@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title> Node JS Hello World App </title>
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.min.js"></script>
+</head>
+<body ng-app="BookApp">
+
+    <div class="container" ng-controller="BookController">
+        <h1>
+            Node JS on Openshift : Config
+        </h1>
+        <hr />
+        <h2>Description:</h2>
+        <p>
+            This week I will be working on Node JS , Express JS and host my application on openshift.
+            In this experiment I learnt to configure openshift application using NodeJs and Express JS.
+            I have returned a simple text on click of a link shared by the server.js on the openshift.
+
+            <br />
+            I followed following steps for the configuration:<br />
+            <ol>
+                <li>First, I created an account on <a href="www.https://www.openshift.com/"><strong>Open Shift.</strong></a></li>
+                <li>
+                    Then I installed the other pre-requisites,
+                    <ul> <li>Ruby</li><li>Git Client for Windows</li><li>Node JS(npm)</li></ul>
+                </li>
+                <li>Then I installed rhc client using command : <code>gem install rhc</code> on the console</li>
+                <li>After that, I created a Node JS application on the openshift <a href="https://openshift.redhat.com/app/console/application_types"> Application Types</a> Page</li>
+                <li>After the appplication, was created , I got the ssh address and cloned the app on my local machine using <code> git clone "address"</code></li>
+                <li>
+                    With the app downloaded, I changed the <code> server.js </code> file with following lines:
+                    <ul>
+                        <li><code>var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';</code></li>
+                        <li><code>var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;</code></li>           
+                         <li><code>app.listen(port, ip);</code></li>
+
+                    </ul>
+
+                    <strong>Description: </strong>
+                    <ul>
+                        <li>The default address and port are the opensift ones, but if the id is not accessible, 
+                        like in the case of local testing, the local ip and port numbers are used.</li>
+
+                    </ul>
+                </li>
+
+            </ol>
+        </p>
+
+        <hr />
+        <h3> View Source : </h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week06/week601.html" target="_blank"> HTML </a><br />
+        <p>
+            <h3> Reference :</h3>
+            <a href="http://nodejs.org/" target="_blank"> NodeJS </a><br />
+            <a href="https://angularjs.org/" target="_blank"> Angular JS </a><br />
+        </p>
+
+        <hr />
+
+
+
+    </div>
+
+
+</body>
+</html>
