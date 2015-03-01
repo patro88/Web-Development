@@ -1,5 +1,5 @@
 ﻿../../story/whatisnext.htm?../experiments/week06/week6_story.txt      What is Next?
-week601.html                                                          Node JS Hello World App
+week601.html                                                          Node JS on Openshift : Config
 week602.html                                                          A Simple Node JS application
 week603.html                                                          Displaying JSON data 
 week604.html                                                          Node JS with Angular JS
