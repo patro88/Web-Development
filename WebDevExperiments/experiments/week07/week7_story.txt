@@ -1,0 +1,7 @@
+﻿../../story/whatisnext.htm?../experiments/week07/week7_story.txt      What is Next?
+week701.html                                                          Mongo DB Configuration and Read Record
+week702.html                                                          Insert Record
+week703.html                                                          Update Record
+week704.html                                                          Delete Record
+week705.html                                                          Player Application
+week7_story.txt                                                       The story file for this story

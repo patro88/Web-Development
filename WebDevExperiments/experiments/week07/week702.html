@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MongoDB Insert Operation</title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.min.js"></script>
+    <script src="../js/week700.js"></script>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            MongoDB - MongoDB Insert Operation 
+        </h2>
+        <hr />
+        <h3>Description:</h3>
+        <div>
+            In this experiment I have tried to insert a new record using the <code>save</code> method of mongoose.
+            The inserted record is reflected in the database and I have attached a link to see the changes.
+            <br />
+        </div>
+
+        <div ng-app="FormApp" ng-controller="FormController">
+            <h3>Insert operation</h3>
+            <div style="margin: 20px;" class="form-group">
+                Enter data and click on the button to add record in database.
+                <table>
+                    <tr>
+                        <td><input ng-model="player.name" placeholder="Player Name"></td>
+                        <td><input ng-model="player.team" placeholder="Team"></td>
+                        <td><input ng-model="player.runs" placeholder="Runs" ></td>
+                        <td><input ng-model="player.wickets" placeholder="Wickets"></td>
+                        <td>&emsp;</td>
+                        <td>
+                            <button ng-click="add(player)"  ng-hide="added" class="btn btn-primary glyphicon glyphicon-plus"></button>
+                            <button ng-show="added" class="btn btn-success glyphicon glyphicon-ok"></button>
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+            <div class="alert-success" ng-show="added">
+                The record was successfully added !!!
+            </div>
+            <strong>Code Snippet</strong><br /><br />
+            Server JS Code: <br />
+            <pre class="code">app.post("/api/player", function (req, res) {
+    var player1 = new PlayerModel(req.body)
+    player1.save(function (err, doc) {
+        PlayerModel.find(function (err, data) {
+            res.json(data);
+        });
+    });
+})
+</pre>
+            <br />
+            Client JS Code: <br />
+            <pre class="code">$scope.add = function (player) {
+        $http.post("http://nodejs-shakti200.rhcloud.com/api/player", player)
+           .success(function (response) {
+               $scope.added = true;
+           });
+    }
+</pre>
+            <div>
+                <h3>Verify</h3>
+                <div>
+                    <a href="http://nodejs-shakti200.rhcloud.com/api/player"> Click this link to view on the server and verify your insert operation. </a>
+                </div>
+            </div>
+            
+            </div>
+
+
+        <hr />
+        
+        
+
+        <div class="container">
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week07/week702.html" target="_blank"> HTML </a><br />
+
+            <a href="../../fileview/Default.aspx?~/experiments/js/week700.js" target="_blank"> JS </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div><a href="http://www.mongodb.org/">MongoDB Official Website</a></div>
+            <div><a href="http://mongoosejs.com/">MongooseJs Official Website</a></div>
+            <div> <a href="http://en.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB Wikipedia</a></div>
+            <div> <a href="https://www.youtube.com/watch?v=YH5sFprHgl0" target="_blank">Prof. Jose Youtube Channel on MongoDB and Mongoose</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

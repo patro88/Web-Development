@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Player Application</title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.min.js"></script>
+    <script src="../js/week700.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>
+            Player Application
+        </h2>
+        <hr />
+        <h3>Description:</h3>
+        <div>
+            In this experiment I am preparing an application using all CRUD operations. The experiment is combination of all previous experiments.
+            Earlier, I have done
+            <a href="week701.html"> insert </a>
+            <a href="week701.html"> update </a> and 
+            <a href="week701.html"> delete </a> operations. This experiment has a full api using all these operations. 
+
+            <br />
+        </div>
+            <div>
+                <h3>Players DB: </h3>
+
+                <div>
+                    <a href="http://nodejs-shakti200.rhcloud.com/"> 
+                        Click this link to view the players API. This api is in the bottom portion of the page with heading 
+                    <strong>Mongo DB - Players</strong>
+                    </a><br /><br /><br />
+                    Note that when we alter data in the "Node JS - Book API " form, and restart server, the data is refreshed. 
+                    However, this is not the case with "Mongo DB - Players" form. In this data is saved in the mongo DB. SO it is retained even after the server restarts.<br /><br />
+                    Below is a snapshot of the server which contains the Mongo DB portion from the page.<br /><br />
+                    <pre> <img src="../images/mongo1.JPG"/></pre>
+                </div>
+
+            </div>
+
+            <br />
+            <h3>Code Snippet</h3>
+            Server JS Code: <br />
+            
+        <pre class="code">var PlayerSchema = mongoose.Schema({
+    name: String,
+    team: String,
+    runs: Number,
+    wickets: Number,
+}, { collection: 'player' });
+var PlayerModel = mongoose.model('PlayerModel', PlayerSchema);
+app.get("/api/player", function (req, res) {
+    PlayerModel.find(function (err, data) {
+        res.json(data);
+    });
+})
+app.get("/api/player/1", function (req, res) {
+    PlayerModel.find(function (err, data) {
+        res.json(data[0]);
+    });
+})
+app.post("/api/player", function (req, res) {
+    var player1 = new PlayerModel(req.body)
+    player1.save(function (err, doc) {
+        PlayerModel.find(function (err, data) {
+            res.json(data);
+        });
+    });
+})
+app.delete("/api/player/:id", function (req, res) {
+    PlayerModel.findById(req.params.id, function (err, doc) {
+        doc.remove();
+        PlayerModel.find(function (err, data) {
+            res.json(data);
+        });
+    });
+})
+app.put("/api/player/:id", function (req, res) {
+    PlayerModel.update({ _id: req.params.id }, { $set: req.body }, function () {
+        PlayerModel.find(function (err, data) {
+            res.json(data);
+        });
+    });
+})
+</pre>
+            <br />
+            app.js Code: <br />
+            <pre class="code">app.controller("PlayerController",
+    function ($scope, $http) {
+        $http.get("/api/player")
+        .success(function (response) {
+            $scope.players = response;
+        });
+        $scope.remove = function (id) {
+            $http.delete("/api/player/" + id)// to delete data from the client-side
+            .success(function (response) {
+                $scope.players = response; // update the list after a row has been deleted
+            });
+        };
+        $scope.add = function (player) {
+            $http.post("/api/player", player) // to add data onto the client-side
+            .success(function (response) {
+                $scope.players = response;// update the list after a row has been added
+                $scope.player = null;
+            });
+        };
+        $scope.selectedIndex = null;
+        $scope.select = function (index) {
+            $scope.selectedIndex = index;
+            $scope.player = $scope.players[index];
+        }
+        $scope.update = function (player) {
+            $http.put("/api/player/" + player._id, player) // update a particular row
+            .success(function (response) {
+                $scope.players = response;// update the list after a row has been updated
+                $scope.player = null;
+            });
+        };
+
+</pre>
+        </div>
+
+
+        <hr />
+
+
+
+        <div class="container">
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week07/week705.html" target="_blank"> HTML </a><br />
+
+            <a href="../../fileview/Default.aspx?~/experiments/js/week700.js" target="_blank"> JS </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div><a href="http://www.mongodb.org/">MongoDB Official Website</a></div>
+            <div><a href="http://mongoosejs.com/">MongooseJs Official Website</a></div>
+            <div> <a href="http://en.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB Wikipedia</a></div>
+            <div> <a href="https://www.youtube.com/watch?v=YH5sFprHgl0" target="_blank">Prof. Jose Youtube Channel on MongoDB and Mongoose</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

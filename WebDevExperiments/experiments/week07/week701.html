@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MongoDB Read Operation</title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.min.js"></script>
+    <script src="../js/week700.js"></script>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            Mongo-DB Introduction 
+        </h2>
+        <hr />
+        <h3>Description:</h3>
+        <div>
+            In this week, I started working with MongoDB and extended the learning of Angular JS and NodeJS. 
+            I used mongoDB to store the data which I used to store on the server. So, now we don't have to worry if the server restarts. 
+            For this, I installed MongoDB on openshift. Also, I installed <code>RockMongo</code> on openshift. It behaves as a client for the 
+            mongoDb to view the table structures. 
+            <br /><br />
+            After installing, I added following lines in the server code to use mongoose. 
+
+            <div>
+                <pre class="code">var mongoose = require('mongoose');
+ 
+var mongoDBString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/cs5610';
+mongoose.connect(mongoDBString);</pre>
+            </div>
+            <br />
+
+            <p>
+                Added following code in the server file to allow Cross Origin Resource Sharing.
+            </p>
+            <pre class="code">var cors = require('cors');<br />app.use(cors());<br /></pre>
+
+
+        </div>
+
+        <div ng-app="FormApp" ng-controller="FormController">
+            
+            <div>
+                <h3>Read operation</h3>
+                <div>
+                    If you want to insert any records before reading, go to <a href="week702.html">experiment 2</a>.<br /><br />
+                    <strong> View All Records</strong>
+
+                    <a href="http://nodejs-shakti200.rhcloud.com/api/player"> Click this link to view on the server. </a>
+                </div>
+                <pre><img src="../images/mongo2.PNG" class="img-thumbnail" /></pre>
+                <br /><br />
+                <div>
+                    <strong> View First Record only</strong>
+
+                    <a href="http://nodejs-shakti200.rhcloud.com/api/player/1"> Click this link to view on the server. </a>
+                </div>
+                <pre><img src="../images/mongo3.PNG" class="img-thumbnail" /></pre>
+
+            </div><br /><br />
+
+            <strong>Code Snippet</strong><br /><br />
+            Server JS Code: <br />
+            <pre class="code">app.get("/api/player", function (req, res) {
+    PlayerModel.find(function (err, data) {
+        res.json(data);
+    });
+})
+//get a single player
+app.get("/api/player/1", function (req, res) {
+    PlayerModel.find(function (err, data) {
+        res.json(data[0]);
+    });
+})
+</pre>
+            </div>
+
+
+        <hr />
+        
+        
+
+        <div class="container">
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week07/week701.html" target="_blank"> HTML </a><br />
+
+            <a href="../../fileview/Default.aspx?~/experiments/js/week700.js" target="_blank"> JS </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div><a href="http://www.mongodb.org/">MongoDB Official Website</a></div>
+            <div><a href="http://mongoosejs.com/">MongooseJs Official Website</a></div>
+            <div> <a href="http://en.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB Wikipedia</a></div>
+            <div> <a href="https://www.youtube.com/watch?v=YH5sFprHgl0" target="_blank">Prof. Jose Youtube Channel on MongoDB and Mongoose</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Delete Record</title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.min.js"></script>
+    <script src="../js/week700.js"></script>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            Delete Record
+        </h2>
+        <hr />
+        <h3>Description:</h3>
+        <div>
+            In this experiment I have tried to delete a record using the <code>delete</code> method of mongoose.
+            The delete is reflected in the database and I have attached a link to see the changes.
+            <br />
+        </div>
+
+        <div ng-app="FormApp" ng-controller="FormController">
+            <h3>Delete:</h3>
+            <div style="margin: 20px;" class="form-group">
+                Before deleting make sure there is a record in the database.
+                <a href="week702.html"> You can go here to insert a record.</a> <br /><br />
+                Click on upload button to load data to be updated.
+                <table>
+                    <tr>
+                        <td><input ng-model="player.name" placeholder="Player Name"></td>
+                        <td><input ng-model="player.team" placeholder="Team"></td>
+                        <td><input ng-model="player.runs" placeholder="Runs"></td>
+                        <td><input ng-model="player.wickets" placeholder="Wickets"></td>
+                        <td>&emsp;</td>
+                        <td>
+                            <button ng-click="upload()" ng-hide="uploaded || updated" class="btn btn-primary glyphicon glyphicon-download"></button>
+                            <button ng-click="delete(player._id)" ng-show="uploaded" class="btn btn-danger glyphicon glyphicon-remove"></button>
+                            <button ng-show="updated" class="btn btn-success glyphicon glyphicon-ok"></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="alert-danger" ng-show="updated">
+                Record Successfully deleted !!!
+            </div>
+
+
+            <div>
+                <h3>Verify</h3>
+
+                <div>
+                    <a href="http://nodejs-shakti200.rhcloud.com/api/player"> Click this link to view all data present on the server. Click this before and after to verify the operation. </a>
+                </div>
+
+            </div>
+
+            <br />
+            <h3>Code Snippet</h3>
+            Server JS Code: <br />
+            <pre class="code">app.delete("/api/player/:id", function (req, res) {
+    PlayerModel.findById(req.params.id, function (err, doc) {
+        doc.remove();
+        PlayerModel.find(function (err, data) {
+            res.json(data);
+        });
+    });
+})
+</pre>
+            <br />
+            Client JS Code: <br />
+            <pre class="code">$scope.upload = function () {
+        $http.get("http://nodejs-shakti200.rhcloud.com/api/player/1")
+        .success(function (response) {
+            $scope.player = response;
+            $scope.uploaded = true;
+        });
+        
+    }
+$scope.delete = function (id) {
+        $http.delete("http://nodejs-shakti200.rhcloud.com/api/player/"+id)
+        .success(function (response) {
+            $scope.updated = true;
+            $scope.uploaded = null;
+            $scope.player = null;
+        });
+    }
+</pre>
+        </div>
+
+
+        <hr />
+
+
+
+        <div class="container">
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week07/week704.html" target="_blank"> HTML </a><br />
+
+            <a href="../../fileview/Default.aspx?~/experiments/js/week700.js" target="_blank"> JS </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div><a href="http://www.mongodb.org/">MongoDB Official Website</a></div>
+            <div><a href="http://mongoosejs.com/">MongooseJs Official Website</a></div>
+            <div> <a href="http://en.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB Wikipedia</a></div>
+            <div> <a href="https://www.youtube.com/watch?v=YH5sFprHgl0" target="_blank">Prof. Jose Youtube Channel on MongoDB and Mongoose</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

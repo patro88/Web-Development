@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CM App</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body ng-app="CMApp">
+  
+        <div class="container">
+
+            <div class="container-fluid" ng-show="booklist" ng-controller="BookController">
+                <table class="table table-striped">
+                    <caption>Node JS - Books</caption>
+                    <thead>
+                        <tr><th>Book Name</th><th>ISBN No</th><th>Price</th><th></th></tr>
+                        <tr>
+                            <td><input ng-model="book.name" placeholder="Book Name" /></td>
+                            <td><input ng-model="book.isbn" placeholder="ISBN" /></td>
+                            <td><input ng-model="book.price" placeholder="Price" /></td>
+                            <td>
+                                <button ng-click="update(book)" class="btn btn-primary glyphicon glyphicon-ok"></button>
+                                <button ng-click="add(book)" class="btn btn-success glyphicon glyphicon-plus"></button>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr ng-repeat="book in booklist">
+                            <td>{{book.name}}</td>
+                            <td>{{book.isbn}}</td>
+                            <td>{{book.price}}</td>
+                            <td>
+                                <button ng-click="select($index)" class="btn btn-warning glyphicon glyphicon-pencil"></button>
+                                <button ng-click="remove($index)" class="btn btn-danger glyphicon glyphicon-remove"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <!--  Start of mongo DB related elements -->
+
+            <div class="container-fluid" ng-controller="PlayerController" ng-show="players">
+                
+                <table class="table table-striped">
+                    <caption>Mongo DB - Players </caption>
+                    <thead>
+                        <tr><th>Player Name</th><th>Team</th><th>Runs Scored </th><th>Wickets Taken</th> <th></th></tr>
+                        <tr>
+                            <td><input ng-model="player.name" placeholder="Player Name" /></td>
+                            <td><input ng-model="player.team" placeholder="Team" /></td>
+                            <td><input ng-model="player.runs" placeholder="Runs" /></td>
+                            <td><input ng-model="player.wickets" placeholder="Wickets" /></td>
+                            <td>
+                                <button ng-click="update(player)" class="btn btn-primary glyphicon glyphicon-ok" ></button>
+                                <button ng-click="add(player)" class="btn btn-success glyphicon glyphicon-plus"></button>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr ng-repeat="player in players">
+                            <td>{{player.name}}</td>
+                            <td>{{player.team}}</td>
+                            <td>{{player.runs}}</td>
+                            <td>{{player.wickets}}</td>
+                            <td>
+                                <button ng-click="select($index)" class="btn btn-warning glyphicon glyphicon-pencil"></button>
+                                <button ng-click="remove(player._id)" class="btn btn-danger glyphicon glyphicon-remove"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+</body>
+</html>
