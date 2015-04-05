@@ -1,0 +1,70 @@
+#rememberme-0, #humancheck-0, #humancheck-1 {
+	position: relative;
+	margin: 0;
+}
+
+a:focus  {
+	outline: none;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%; 
+	padding: 10px;
+	color : #777;
+	background-color: #f8f8f8;
+  	border-color: #e7e7e7;	
+	text-align: center;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	line-height: 1.42857143;
+	
+}
+
+/************** AboutMe page CSS ******************/
+.about { 
+	margin-top: 80px;
+}
+.self_image {
+	width: 300px;
+}
+
+.self_details {
+	margin-left: 100px;
+	max-width: 700px;
+	min-height: 350px;
+}
+
+.self_details, #image_div {
+	float: left;
+}
+
+.self_details h3 {
+	font-family: Roboto, sans-serif;
+	font-weight: 300;
+	font-size: 1.8em;
+	color: #5b5b5b;
+	line-height: 50px;
+	margin-bottom: -10px;
+}
+
+.self_details p {
+	font-family: verdana;
+	font-size: 13.5px;
+	line-height: 27px;
+	color: #1d2021;
+	word-wrap: break-word
+}
+
+.contact {
+	padding: 30px;
+	clear: both;
+	color: #000;
+	margin-bottom: 10px;
+}
+
+#fbImage, #linkedImage, #twitterImage, #googleImage {
+	width: 50px;
+	height: 50px;
+	border-radius: 12px;
+}
