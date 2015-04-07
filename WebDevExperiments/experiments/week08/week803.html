@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Google Search API </title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/week800.js"></script>
+    
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            Google Search API
+        </h2>
+        <hr />
+        <h3>Description:</h3>
+        <div>
+            In this experiment , I haveExplored the google search api to be used in my project.
+            I will be adding google search buttton in my project and allow users to search over the net.
+            I am thinking of doing a customized google search based on my usage. But this is nt yet finalized.
+            In this experiment I will be doing all sorts of search using google api.
+
+        </div>
+        <hr />
+        <div>
+
+            <div id="searchcontrol">
+                <input type="text" id="secrchBox" name="searchterms">
+                <input type="button" onclick="DoSearch()" value="Search">
+                <br />
+                <iframe id="iframe_video" width="420" height="345" src=""></iframe>
+
+            </div><br /><br />
+
+            <h3>Code Snippet</h3>
+            <strong>HTML Code: </strong><br />
+            <p>The input is a normal text input. On click of the button, I call the DoSearch method which calls the google api and displays the results below.</p>
+            <pre class="code">&lt;input type="text" id="secrchBox" name="searchterms"&gt;
+&lt;input type="button" onclick="DoSearch()" value="Search"&gt;
+    </pre>
+            <br />
+            <strong>Javascript Code:</strong> <br />
+            <p>First we get get a searchcontrol object from google api. Then the searchControl is drawn on the div searchcontrol.
+            After  this, teh searchControl execute method is called which hits the google search api and the results are pasted in the given div.</p>
+            <pre class="code">google.load("search", "1", { "nocss": true });
+function DoSearch() {
+    var ss = document.getElementById("secrchBox").value;
+    // Create a search control
+    var searchControl = new google.search.SearchControl();
+    searchControl.addSearcher(new google.search.WebSearch());
+    searchControl.draw(document.getElementById("searchcontrol"));
+    // execute an inital search
+    searchControl.execute(ss);
+}
+    </pre>
+        </div>
+
+
+        <hr />
+
+
+
+        <div>
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week08/week803.html" target="_blank"> HTML </a><br />
+
+            <a href="../../fileview/Default.aspx?~/experiments/js/week800.js" target="_blank"> JS </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div> <a href="https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA" target="_blank">Prof. Jose Youtube Channel</a></div>
+            <div> <a href="https://www.stackoverflow.com" target="_blank">StackOverflow</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

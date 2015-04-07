@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Passport JS </title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            Passport JS: Login Authentication
+        </h2>
+        <hr />
+        <h2>Description:</h2>
+        <div>
+
+            <p>
+                This experiment concentrates on the login functionality. Login is done using passport JS local strategy and data is verified from the UserModel.
+                Refer previous exeriment on how to configure passort and do a registration to enter a record in the database.
+                In this  experiment, the user is prompted a dialog box with user name and password and when he clicks sign in button, the login service is called.
+
+            <p />
+
+            <hr />
+
+            <h2>Project Link:</h2>
+            <p>
+                <a href="http://easynotes-shakti200.rhcloud.com/">Go to my project page and click login. </a>  <br />
+                Go the project link and register yourself. A record will be created for you in the database and you can sign in using your credentials to view the profile page.
+            </p>
+
+            <h3>Sign In Page</h3>
+            <p><img alt="image" src="../images/login.png" height="500" /></p>
+
+            <h3>Node JS Code Snippet:</h3>
+            <p>
+                Passport configuration is done first. Local Strategy is configured. Here I specified that when one record matching the username and password is found
+                then I allow to login , otherwise I return false.<br />
+                Also, I define the two methods <code>serializeUser</code> and <code>deserializeUser</code> required by passport to define the user to be stored.
+
+            </p>
+            <pre class="code">passport.use(new LocalStrategy({
+    usernameField: 'userid',
+    passwordField: 'password'
+  },
+		function(username, password, done)
+		{
+			UserModel.findOne({userid: username, password: password}, function(err, user){
+				console.log(user);
+				if (err) { 
+					return done(err); }
+				if (!user) { 
+					return done(null, false); }
+				return done(null, user); })
+		}));
+passport.serializeUser(function(user, done) {
+	done(null, user);
+});
+passport.deserializeUser(function(user, done) {
+	done(null, user);
+});
+</pre>
+            <p>After this, I declared the <code>login</code> service where I introduced a interface <code>passport.aunthenticate('local')</code>
+            to authenticate user before allowing login.<br />Also I added the <code>/profile</code> service to be called just after login is performed to take user to profile page.</p>
+            <pre class="code">app.post("/login", passport.authenticate('local'), function(req, res){
+	var user = req.user;
+	console.log(user);
+	res.json(user);
+});
+
+app.get("/profile", auth, function(req, res){
+	var user = req.user;
+	UserModel.findOne({userid: user.userid, password: user.password} , function(err, users){
+		res.json(users);
+	})
+});
+</pre>
+            
+            <h3>AngularJS Code Snippet</h3>
+            <p>
+                In the client side, we add the login method where we call teh login service. After login is done and we receive success,
+                I added an additional call to profile service to load the profile page.
+            </p>
+            <pre class="code">                
+        $scope.login = function (user) {
+            $http.post("/login" , user)
+            .success(function (response) {
+                console.log(response);
+                $rootScope.currentUser = response;
+                $location.url("/profile");
+                $http.get("/profile")
+                .success(function(users)
+                {
+                    $scope.profile = users;
+                });
+                angular.element('#modalClose').trigger('click');
+            });
+        };
+</pre>
+        </div>
+
+        <hr />
+
+
+
+        <div>
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week10/week1003.html" target="_blank"> HTML </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/project_nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div> <a href="https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA" target="_blank">Prof. Jose Youtube Channel</a></div>
+            <div> <a href="http://passportjs.org/guide/" target="_blank">Passport Guide</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

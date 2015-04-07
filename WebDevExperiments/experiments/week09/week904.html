@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Project: About me route and Fixed Footer</title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            Project: About me route and Fixed Footer
+        </h2>
+        <hr />
+        <h3>Description:</h3>
+        <div>
+           There are two main functioalities in this page. One the routing mechanism implemented and the other is fixed heder and footer.
+            The routing is implemented using the <code>ng-route</code> attribute of the angular Js.
+            I have not developed the design of the about page. Just added some content for now to test the route functionality.
+            <br /><br />
+            In the Fixed header and footer design , I learnt and implemented teh position attributes and their functionality.
+            I will be using these further in my application.
+
+        </div>
+        <hr />
+        <div>
+
+            <div>
+                <a href="http://easynotes-shakti200.rhcloud.com/">Click here to visit the current version of the home page.</a>
+                <br /><br />
+                <p>
+                    Below screenshot displays the about page. This page is designed in a separate html file and gets loaded on teh basis of the router.
+                 
+                </p><br /><br />
+                <img id="thumbnil" src="../images/about.png" alt="image" height="300" width="500" /><br /><br />
+                <strong>Code Snippet</strong><br /><br />
+                Javascript Code: <br />
+                <pre class="code">var app = angular.module("ATApp", ["ngRoute"]);
+app.config(['$routeProvider',
+  function ($routeProvider) {
+      $routeProvider.
+        when('/home', {
+            templateUrl: 'carousalHome.html'
+        }).
+        when('/about', {
+            templateUrl: 'aboutMe.html'
+        }).
+        otherwise({
+            redirectTo: '/home'
+        });
+  }]);
+
+</pre>
+                In the above image I have tried to show the fixed header and footer by reducing the screen height and doing a scroll down.
+            Note that the position values of both header and footer are fixed. This makes them fixed at the bottom or top of the page irrespective of the scrolling.  
+            </div>
+            CSS Code for footer: 
+            <pre class="code">.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%; 
+	padding: 10px;
+	color : #777;
+	background-color: #f8f8f8;
+  	border-color: #e7e7e7;	
+	text-align: center;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	line-height: 1.42857143;
+	
+}
+</pre>
+
+        </div>
+
+
+        <hr />
+
+
+
+        <div>
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week09/week904.html" target="_blank"> HTML </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/project_nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div> <a href="https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA" target="_blank">Prof. Jose Youtube Channel</a></div>
+            <div> <a href="http://getbootstrap.com/" target="_blank">Bootstrap Pages</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

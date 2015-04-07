@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Embedding youtube video </title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/week800.js"></script>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            Embedding youtube video 
+        </h2>
+        <hr />
+        <h3>Description:</h3>
+        <div>
+            In this experiment , I have tried to embed a video into a iframe in html.
+            This is required for my user page as he will be adding widgets onto iframes.
+            This utility is very useful as it can be used to attach a video as well as play the video in the iframe where it is attached.
+            Bootstrap styling can be applied to this to make it more responsive.
+
+        </div>
+        <hr />
+        <div>
+
+            <div>
+                <input id="input_video" type="text" placeholder="Enter the youtube url to add" />
+                <button id="btn_video" class="btn btn-success">Embed</button>
+                <br />
+                <iframe id="iframe_video" width="420" height="345" src=""></iframe>
+
+            </div><br /><br />
+
+            <h3>Code Snippet</h3>
+            <strong>HTML Code:</strong> <br />
+            <p>The input tag is used to get a youtube link. There is an iframe below the input where the youtube link will be embeded.
+             </p>
+            <pre class="code">&lt;input id="input_video" type="text" placeholder="Enter the youtube url to add" /&gt;
+&lt;button id="btn_video" class="btn btn-success"&gt;Embed&lt;/button&gt;
+&lt;iframe id="iframe_video" width="420" height="345" src=""&gt;&lt;/iframe&gt;
+    </pre>
+            <br />
+            <strong>Javascript Code:</strong> <br />
+            <p>Initially the iframe is hidden. When the link is provided, teh iframe is shown and its <code>src</code>attribute is changed to the provided link.</p>
+            <pre class="code">$(function () {
+    $("#iframe_video").hide();
+    $("#btn_video").click(function () {
+        $("#iframe_video").attr("src", $("#input_video").val());
+        $("#iframe_video").show();
+    });
+});
+    </pre>
+        </div>
+
+
+        <hr />
+
+
+
+        <div>
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week08/week802.html" target="_blank"> HTML </a><br />
+
+            <a href="../../fileview/Default.aspx?~/experiments/js/week800.js" target="_blank"> JS </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div> <a href="https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA" target="_blank">Prof. Jose Youtube Channel</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

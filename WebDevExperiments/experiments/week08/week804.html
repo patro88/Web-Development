@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Multiple search options </title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/week800.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>
+            Multiple search options
+        </h2>
+        <hr />
+        <h3>Description:</h3>
+        <div>
+            In this experiment , I have tried to design a page with multiple search options. The idea is , there will be dropdown with multiple search engine names
+            and a text box with search text. when we enter, we should navigate to the particular search engines page with the results.
+            This is useful for me in my project where a search box of this type will be used. I have to allow users to search in all over the web.
+
+        </div>
+        <hr />
+        <div>
+
+            <form name="searchform" onsubmit="return dosearchAll();">
+                Search:
+                <select name="sengines">
+                    <option value="http://www.google.com/search?q=" selected>Google</option>
+                    <option value="http://en.wikipedia.org/wiki/">Wikipedia</option>
+                    <option value="http://www.dogpile.com/info.dogpl/search/web/">Dogpile</option>
+                    <option value="http://search.yahoo.com/search?p=">Yahoo!</option>
+                </select>
+                For:
+                <input type="text" name="searchterms">
+                <input type="submit" name="SearchSubmit" value="Search">
+            </form>
+
+            <h2>Code Snippet</h2>
+            <strong>
+                HTML Code:
+            </strong>
+            <br />
+            <p>The code below makes up the search form. Copy this into your web page and insert the search URLs from your list as the option values, one search engine for each option.</p>
+            <pre class="code">&lt;form name="searchform" onsubmit="return dosearch();"&gt;
+Search: 
+&lt;select name="sengines"&gt;
+&lt;option value="http://www.google.com/search?q=" selected&gt;Google&lt;/option&gt;
+&lt;option value="http://www.altavista.com/web/results?q="&gt;Alta Vista&lt;/option&gt;
+&lt;option value="http://www.dogpile.com/info.dogpl/search/web/"&gt;Dogpile&lt;/option&gt;
+&lt;option value="http://search.yahoo.com/search?p="&gt;Yahoo!&lt;/option&gt;
+&lt;/select&gt;
+For: 
+&lt;input type="text" name="searchterms"&gt;
+&lt;input type="submit" name="SearchSubmit" value="Search"&gt;
+&lt;/form&gt;
+    </pre>
+            <br /><br />
+            <strong>Javascript Code: </strong><br />
+            <p>The javascript takes the search text and calls the related engine.</p>
+            <pre class="code">                
+function dosearchAll() {
+    var sf=document.searchform;
+    var submitto = sf.sengines.options[sf.sengines.selectedIndex].value + escape(sf.searchterms.value);
+    window.location.href = submitto;
+    return false;
+}
+
+    </pre>
+        </div>
+
+
+        <hr />
+
+
+
+        <div>
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week08/week804.html" target="_blank"> HTML </a><br />
+
+            <a href="../../fileview/Default.aspx?~/experiments/js/week800.js" target="_blank"> JS </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div> <a href="https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA" target="_blank">Prof. Jose Youtube Channel</a></div>
+            <div> <a href="https://www.stackoverflow.com" target="_blank">StackOverflow</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

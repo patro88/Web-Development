@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Project: Sign up and Register Modal Boxes</title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            Project: Sign up and Register Modal Boxes 
+        </h2>
+        <hr />
+        <h3>Description:</h3>
+        <div>
+            In this experiment I tried to design the sign up and register modal boxes. These are designed using the bootstrap features 
+            to show the look and feel of the buttons.
+            Also, there is an additional why? page to show the details according to standards of web development.
+            The sign in page contains the username or alias and the password along with teh remember feature for the browser cache.
+            The register page has Details about the user like the email, the alias name and password  to be entered twice to confirm.
+            
+            <br /><br />
+            The submit buttons in teh modal boxes are not workig now. The functionalities will be developed as I proceed in the project.
+
+        </div>
+        <hr />
+        <div>
+
+            <div>
+                <a href="http://easynotes-shakti200.rhcloud.com/">Click here to visit the current version of the home page.</a>
+                <br /><br />
+                <img id="thumbnil" src="../images/modal1.png" alt="image" height="300" />
+                <img id="thumbnil" src="../images/modal2.png" alt="image" height="300" />
+                <img id="thumbnil" src="../images/modal3.png" alt="image" height="300" />
+
+            </div><br /><br />
+
+            <strong>Code Snippet</strong><br /><br />
+            HTML Code: <br />
+            <pre class="code">&lt;div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"&gt;
+	  &lt;div class="modal-dialog modal-sm"&gt;
+	    &lt;div class="modal-content"&gt;
+	        &lt;br&gt;
+	        &lt;div class="bs-example bs-example-tabs"&gt;
+	            &lt;ul id="myTab" class="nav nav-tabs"&gt;
+	              &lt;li class="active"&gt;&lt;a href="#signin" data-toggle="tab"&gt;Sign In&lt;/a&gt;&lt;/li&gt;
+	              &lt;li class=""&gt;&lt;a href="#signup" data-toggle="tab"&gt;Register&lt;/a&gt;&lt;/li&gt;
+	              &lt;li class=""&gt;&lt;a href="#why" data-toggle="tab"&gt;Why?&lt;/a&gt;&lt;/li&gt;
+	            &lt;/ul&gt;
+	        &lt;/div&gt;
+	      &lt;div class="modal-body"&gt;
+	        &lt;div id="myTabContent" class="tab-content"&gt;
+	        &lt;div class="tab-pane fade in" id="why"&gt;
+	        &lt;p&gt;We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.&lt;/p&gt;
+	        &lt;p&gt;&lt;/p&gt;&lt;br&gt; Please contact &lt;a mailto:href="patro.s@husky.neu.edu"&gt;&lt;/a&gt;patro.s@husky.neu.edu&lt;/a&gt; for any other inquiries.&lt;/p&gt;
+	        &lt;/div&gt;
+	        &lt;div class="tab-pane fade active in" id="signin"&gt;
+	            &lt;form class="form-horizontal"&gt;
+	            &lt;fieldset&gt;
+
+	            &lt;div class="control-group"&gt;
+	              &lt;label class="control-label" for="userid"&gt;Alias:&lt;/label&gt;
+	              &lt;div class="controls"&gt;
+	                &lt;input required="" id="userid" name="userid" type="text" class="form-control" placeholder="User1234" class="input-medium" required=""&gt;
+	              &lt;/div&gt;
+	            &lt;/div&gt;
+	
+	            &lt;!-- Password input--&gt;
+	            &lt;div class="control-group"&gt;
+	              &lt;label class="control-label" for="passwordinput"&gt;Password:&lt;/label&gt;
+	              &lt;div class="controls"&gt;
+	                &lt;input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium"&gt;
+	              &lt;/div&gt;
+	            &lt;/div&gt;
+	
+	            &lt;!-- Multiple Checkboxes (inline) --&gt;
+	            &lt;div class="control-group"&gt;
+	              &lt;label class="control-label" for="rememberme"&gt;&lt;/label&gt;
+	              &lt;div class="controls"&gt;
+	                &lt;label class="checkbox inline" for="rememberme-0"&gt;
+	                  &lt;input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me"&gt;
+	                  &emsp;Remember me
+	                &lt;/label&gt;
+	              &lt;/div&gt;
+	            &lt;/div&gt;
+	
+	            &lt;!-- Button --&gt;
+	            &lt;div class="control-group"&gt;
+	              &lt;label class="control-label" for="signin"&gt;&lt;/label&gt;
+	              &lt;div class="controls"&gt;
+	                &lt;button id="signin" name="signin" class="btn btn-success"&gt;Sign In&lt;/button&gt;
+	              &lt;/div&gt;
+	            &lt;/div&gt;
+	            &lt;/fieldset&gt;
+	            &lt;/form&gt;
+	        &lt;/div&gt;
+	        &lt;div class="tab-pane fade" id="signup"&gt;
+	            &lt;form class="form-horizontal"&gt;
+	            &lt;fieldset&gt;
+	            &lt;!-- Sign Up Form --&gt;
+	            &lt;!-- Text input--&gt;
+	            &lt;div class="control-group"&gt;
+	              &lt;label class="control-label" for="Email"&gt;Email:&lt;/label&gt;
+	              &lt;div class="controls"&gt;
+	                &lt;input id="Email" name="Email" class="form-control" type="email" placeholder="user@domain.com" class="input-large" required=""&gt;
+	              &lt;/div&gt;
+	            &lt;/div&gt;
+	            
+	            &lt;!-- Text input--&gt;
+	            &lt;div class="control-group"&gt;
+	              &lt;label class="control-label" for="userid"&gt;Alias:&lt;/label&gt;
+	              &lt;div class="controls"&gt;
+	                &lt;input id="userid" name="userid" class="form-control" type="text" placeholder="user123" class="input-large" required=""&gt;
+	              &lt;/div&gt;
+	            &lt;/div&gt;
+	            
+	            &lt;!-- Password input--&gt;
+	            &lt;div class="control-group"&gt;
+	              &lt;label class="control-label" for="password"&gt;Password:&lt;/label&gt;
+	              &lt;div class="controls"&gt;
+	                &lt;input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required=""&gt;
+	                &lt;em&gt;1-8 Characters&lt;/em&gt;
+	              &lt;/div&gt;
+	            &lt;/div&gt;
+	            
+	            &lt;!-- Text input--&gt;
+	            &lt;div class="control-group"&gt;
+	              &lt;label class="control-label" for="reenterpassword"&gt;Re-Enter Password:&lt;/label&gt;
+	              &lt;div class="controls"&gt;
+	                &lt;input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required=""&gt;
+	              &lt;/div&gt;
+	            &lt;/div&gt;
+	            
+	            &lt;!-- Multiple Radios (inline) --&gt;
+	            &lt;br&gt;
+	            &lt;div class="control-group"&gt;
+	              &lt;label class="control-label" for="humancheck"&gt;Humanity Check:&lt;/label&gt;
+	              &lt;div class="controls"&gt;
+	                &lt;label class="radio inline" for="humancheck-0"&gt;
+	                  &lt;input type="radio" name="humancheck" id="humancheck-0" value="robot" checked="checked"&gt;&emsp;I'm a Robot&lt;/label&gt;
+	                &lt;label class="radio inline" for="humancheck-1"&gt;
+	                  &lt;input type="radio" name="humancheck" id="humancheck-1" value="human"&gt;&emsp;I'm Human&lt;/label&gt;
+	              &lt;/div&gt;
+	            &lt;/div&gt;
+	            
+	            &lt;!-- Button --&gt;
+	            &lt;div class="control-group"&gt;
+	              &lt;label class="control-label" for="confirmsignup"&gt;&lt;/label&gt;
+	              &lt;div class="controls"&gt;
+	                &lt;button id="confirmsignup" name="confirmsignup" class="btn btn-success"&gt;Sign Up&lt;/button&gt;
+	              &lt;/div&gt;
+	            &lt;/div&gt;
+	            &lt;/fieldset&gt;
+	            &lt;/form&gt;
+	      &lt;/div&gt;
+	    &lt;/div&gt;
+	      &lt;/div&gt;
+	      &lt;div class="modal-footer"&gt;
+	        &lt;button type="button" class="btn btn-default" data-dismiss="modal"&gt;Close&lt;/button&gt;
+	      &lt;/div&gt;
+	    &lt;/div&gt;
+	  &lt;/div&gt;
+	&lt;/div&gt;
+</pre>
+
+        </div>
+
+
+        <hr />
+
+
+
+        <div>
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week09/week902.html" target="_blank"> HTML </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/project_nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div> <a href="https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA" target="_blank">Prof. Jose Youtube Channel</a></div>
+            <div> <a href="http://getbootstrap.com/" target="_blank">Bootstrap Pages</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

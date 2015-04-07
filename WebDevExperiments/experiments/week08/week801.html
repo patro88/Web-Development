@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Uploading file</title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript"  src="../bootstrap-3.3.2-dist/js/bootstrap.js"></script> 
+    <script type="text/javascript" src="../js/week800.js"></script> 
+        
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            File Upload
+        </h2>
+        <hr />
+        <h3>Description:</h3>
+        <div>
+            In this week, I started working with my project. I am planning to do a course related website where a student 
+            can register and utilize the online tools to create homework, reading material and ask questions and review other's  answers.
+            This project will make use of Mongo DB and AngularJS , NodeJS framework.
+
+            <br /><br />
+            I started working with small exeriments that will be used in the main prooject. 
+            This experiment is based on uploading files on the website using bootstrap.
+            
+
+        </div>
+        <hr />
+        <div>
+            
+            <div>
+                <input type="file" accept="image/*" onchange="showMyImage(this)" />
+                <br />
+                <img id="thumbnil" style="width:20%; margin-top:10px;" src="" alt="image" />
+
+            </div><br /><br />
+            
+            <h3>Code Snippet</h3>
+            <strong>HTML Code:</strong> <br />
+            <p>The input type is file to accept the files from desktop. 
+            On selecting a file , I call a method
+            <code>showMyImage</code> which makes the button select only image type files and also displays a thumbnail image.</p>
+            <pre class="code">&lt;input type="file" accept="image/*" onchange="showMyImage(this)" /&gt;
+&lt;img id="thumbnil" style="width:20%; margin-top:10px;" src="" alt="image" /&gt;
+</pre>
+            <br />
+            <strong>Javascript Code: </strong><br />
+            <p>This method first checks the file type. If it is not image, we continue. Else I get the thumbnail image and put it in the div below the input.</p>
+            <pre class="code">function showMyImage(fileInput) {
+    var files = fileInput.files;
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var imageType = /image.*/;
+        if (!file.type.match(imageType)) {
+            continue;
+        }
+        var img = document.getElementById("thumbnil");
+        img.file = file;
+        var reader = new FileReader();
+        reader.onload = (function (aImg) {
+            return function (e) {
+                aImg.src = e.target.result;
+            };
+        })(img);
+        reader.readAsDataURL(file);
+    }
+}
+</pre>
+            </div>
+
+
+        <hr />
+        
+        
+
+        <div>
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week08/week801.html" target="_blank"> HTML </a><br />
+
+            <a href="../../fileview/Default.aspx?~/experiments/js/week800.js" target="_blank"> JS </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div> <a href="https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA" target="_blank">Prof. Jose Youtube Channel</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

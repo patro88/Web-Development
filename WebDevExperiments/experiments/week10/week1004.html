@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Passport JS </title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            Passport JS: Logout
+        </h2>
+        <hr />
+        <h2>Description:</h2>
+        <div>
+
+            <p>
+                This experiment focuses on the logout part of the project. In logout , the user information is deleted from session. The cookie created for user is destroyed .
+                This is acheived by the passport's <code>req.logOut()</code> method. 
+            <p />
+
+            <hr />
+
+            <h2>Project Link:</h2>
+            <p>
+                <a href="http://easynotes-shakti200.rhcloud.com/">Go to my project page and click login. </a>  <br />
+                Go the project link and register yourself. A record will be created for you in the database and you can sign in using your credentials to view the profile page.
+            </p>
+
+            <h3>Logout</h3>
+            <p>On login, the profile page is loaded. The signin/Register link is hidden and profile link and the logout link are displayed now.
+            </p>
+            <p><img alt="image" src="../images/profile.png" height="200" /></p>
+            
+            <p>
+               After clicking logout, wherever the user is , he is routed to the home page and the signin/register link is displayed.
+            </p>
+            <p><img alt="image" src="../images/logout.png" height="100" /></p>
+            <h3>HTML Code Snippet:</h3>
+            <p>
+                The scope attribut <code>profile</code> is updated to keep the profile and logout links show on login.
+                <code>ng-show</code> attribute is used to achieve this.
+                Also the <code>ng-hide</code> attribute is applied on sign in link to hide it on logout.
+            </p>
+            <pre class="code">&lt;ul class="nav navbar-nav navbar-right" ng-show="profile"&gt;
+    &lt;li&gt;&lt;a href="#/profile"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+    &lt;li ng-show=&gt;&lt;a href="#signup" data-toggle="modal" data-target=".bs-modal-sm"&gt;Sign In/Register&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#/logout" ng-click="logout()"&gt;Logout&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class="nav navbar-nav navbar-right" ng-hide="profile"&gt;
+    &lt;li&gt;&lt;a href="#signup" data-toggle="modal" data-target=".bs-modal-sm"&gt;Sign In/Register&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+            <h3>Node JS Code Snippet:</h3>
+            <p>Notice the use of logOut method of req object. This object  helps to destroy the login information of the current user.</p>
+            <pre class="code">app.post('/logout', function(req, res)
+		{
+		    req.logOut();
+		    res.send(200);
+});  
+</pre>
+            <h3>AngularJS Code Snippet</h3>
+            <p>We set the scope parameters and the rootsope parameters on client side to null and navigate to home page.</p>
+            <pre class="code">                
+        $scope.logout = function(){
+            $http.post("/logout")
+            .success(function(){
+                $rootScope.currentUser = null;
+                $scope.profile = null;
+                $location.url("/home");
+            });
+        } 
+</pre>
+        </div>
+
+        <hr />
+
+
+
+        <div>
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week10/week1004.html" target="_blank"> HTML </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/project_nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div> <a href="https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA" target="_blank">Prof. Jose Youtube Channel</a></div>
+            <div> <a href="http://passportjs.org/guide/" target="_blank">Passport Guide</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Project: Carousal Bootstrap</title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            Project: Carousal Bootstrap
+        </h2>
+        <hr />
+        <h3>Description:</h3>
+        <div>
+
+            <br /><br />
+            This experiment is based on a very attractive feature called Carousal.
+            The Carousel plugin is a component for cycling through elements, like a carousel (slideshow).
+            This plugin is included in "bootstrap.js" (or in the minified "bootstrap.min.js" file).
+            <br /><br />
+            Plugins can be included individually (using Bootstrap's individual *.js files), or all at once (using "bootstrap.js" or "bootstrap.min.js").
+
+            Bootstrap's individual .js file for Carousel is named "carousel.js".
+        </div>
+        <hr />
+        <div>
+
+            <div>
+                <a href="http://easynotes-shakti200.rhcloud.com/">Click here to visit the current version of the home page.</a>
+                <br /><br />
+                <p>
+                    Below screenshot displays the carousal n teh home page. Please visit the above link to see the actual video effects
+                    on the original home page.
+
+                </p><br /><br />
+                <img id="thumbnil" src="../images/Carousal.png" alt="image" height="300" width="500" /><br /><br />
+                <strong>Code Snippet</strong><br /><br />
+                HTML Code: <br />
+                <pre class="code">&lt;div id="myCarousel" class="carousel slide" data-ride="carousel"&gt;
+      &lt;!-- Indicators --&gt;
+&lt;ol class="carousel-indicators"&gt;
+&lt;li data-target="myCarousel" data-slide-to="0" class="active"&gt;&lt;/li&gt;
+&lt;li data-target="myCarousel" data-slide-to="1" class=""&gt;&lt;/li&gt;
+&lt;li data-target="myCarousel" data-slide-to="2" class=""&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+&lt;div class="carousel-inner" role="listbox"&gt;
+&lt;div class="item active"&gt;
+&lt;img class="first-slide" src="images/carousal/intro.jpg" alt="First slide"&gt;
+&lt;div class="container"&gt;
+&lt;div class="carousel-caption"&gt;
+&lt;h1&gt;What's Athenaeum.&lt;/h1&gt;
+&lt;p&gt; Athenaeum is a web based note keeping and bookmarking application with many other advantages. Sign in to explore.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn btn-lg btn-primary" href="#signup" data-toggle="modal"
+      data-target=".bs-modal-sm"&gt;Sign Up Today&lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+&lt;div class="item"&gt;
+&lt;img class="second-slide" src="images/carousal/searchDomains.jpg" alt="Second slide"&gt;
+&lt;div class="container"&gt;
+&lt;div class="carousel-caption"&gt;
+&lt;h1&gt;All Search domains at one place&lt;/h1&gt;
+&lt;p&gt;This application has a search box which enables user to select the search engine.
+              This makes the search of courses and related videos more handy&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn btn-lg btn-primary" href="#/home" role="button"&gt;Learn more&lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+&lt;div class="item"&gt;
+&lt;img class="third-slide" src="images/carousal/takeNotes.jpg" alt="Third slide"&gt;
+&lt;div class="container"&gt;
+&lt;div class="carousel-caption"&gt;
+&lt;h1&gt;Keep all your class notes organized at one place.&lt;/h1&gt;
+&lt;p&gt;This application allows you to take pictures and write notes in a very friendly application.
+              It makes the task of taking notes in class a very pleasant experience.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn btn-lg btn-primary" href="#/users" role="button"&gt;Browse gallery&lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        
+        
+      &lt;/div&gt;
+&lt;span class="left carousel-control" data-target="#myCarousel" role="button" data-slide="prev"&gt;
+&lt;span class="glyphicon glyphicon-chevron-left" aria-hidden="true"&gt;&lt;/span&gt;
+&lt;span class="sr-only"&gt;Previous&lt;/span&gt;
+      &lt;/span&gt;
+&lt;span class="right carousel-control" data-target="#myCarousel" role="button" data-slide="next"&gt;
+&lt;span class="glyphicon glyphicon-chevron-right" aria-hidden="true"&gt;&lt;/span&gt;
+&lt;span class="sr-only"&gt;Next&lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;&lt;!-- /.carousel --&gt;
+</pre>
+                <br /><strong>Explanation:</strong><br />
+                <p>
+
+                    There are four main parts of a carousal.
+                    <ul>
+                        <li>
+                            The outermost div
+                            <ul>
+                                <li> The class="carousel slide" specifies that this div contains a carousel.</li>
+                                <li>The data-ride="carousel" attribute tells Bootstrap to begin animating the carousel immediately when the page loads.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            The "Indicators" part
+                            <ul>
+                                <li> The indicators are specified in an ordered list with class .carousel-indicators.</li>
+                                <li>The .data-target class points to the id of the carousel.</li>
+                                <li>The .data-slide-to class specifies which slide to go to, when clicking on the specific dot.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            The "Wrapper for slides" part
+                            <ul>
+                                <li> The slides are specified in a div with class .carousel-inner.</li>
+                                <li>The content of each slide is defined in a div with class .item. This can be text or images.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            The "Left and right controls" part 
+                            <ul>
+                                <li> This code adds "left" and "right" buttons that allows the user to go back and forth between the slides manually.</li>
+                                <li>The .data-slide class accepts the keywords "prev" or "next", which alters the slide position relative to its current position.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+            </div>
+
+
+            <hr />
+
+
+
+            <div>
+                <h3> View Source : </h3>
+
+                <a href="../../fileview/Default.aspx?~/experiments/week09/week905.html" target="_blank"> HTML </a><br />
+                <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+                <a href="https://github.com/patro88/Web-Development/tree/master/project_nodejs" target="_blank"> NodeJS on Github </a><br />
+                <h3>References</h3>
+                <div> <a href="https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA" target="_blank">Prof. Jose Youtube Channel</a></div>
+                <div> <a href="http://getbootstrap.com/" target="_blank">Bootstrap Pages</a></div>
+            </div>
+
+            <hr />
+
+
+        </div>
+
+
+</body>
+</html>

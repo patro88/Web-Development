@@ -6,4 +6,6 @@
 ../story/index.htm?../experiments/week05/week5_story.txt   Week5 - Angular JS Routing
 ../story/index.htm?../experiments/week06/week6_story.txt   Week6 - NodeJS and ExpressJS
 ../story/index.htm?../experiments/week07/week7_story.txt   Week7 - MongoDB
+../story/index.htm?../experiments/week08/week8_story.txt   Week8 - Project Related Eperiments I
+../story/index.htm?../experiments/week09/week9_story.txt   Week9 - Project Related Eperiments II
 story.txt                                                  The story file for this story

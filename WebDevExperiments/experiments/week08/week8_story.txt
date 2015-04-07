@@ -1,0 +1,7 @@
+﻿../../story/whatisnext.htm?../experiments/week08/week8_story.txt      What is Next?
+week801.html                                                          Uploading file  
+week802.html                                                          Embedding youtube video  
+week803.html                                                          Google Search API
+week804.html                                                          Multiple search options
+week805.html                                                          Bootstrap & AngularJS Dialog/Modals
+week8_story.txt                                                       The story file for this story

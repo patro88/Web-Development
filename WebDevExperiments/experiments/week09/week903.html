@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Project: Responsive Design</title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            Project: Responsive Design
+        </h2>
+        <hr />
+        <h3>Description:</h3>
+        <div>
+            This experiment is basically the display of responsice design. The home page was inspireed from teh bootstrap model.
+            The bootstrap files are designed in a way to keep the pages displayed in all forms of electronic devices including
+            the laptops, the pads and the mobile devices. The bootstrap uses the <code> @media </code> attributes to achieve this.
+            <br /><br />
+            In persuit of responsive design and making my  project accessible on all devices I started to work on responsive design from the start 
+            of the project. 
+
+        </div>
+        <hr />
+        <div>
+
+            <div>
+                <a href="http://easynotes-shakti200.rhcloud.com/">Click here to visit the current version of the home page.</a>
+                <br /><br />
+                <p>The image below is a screenshot of teh home page taken by minimizing the application to teh minimum level possible.
+                I also have checked this application on the mobile device and all functionalities are working well</p><br /><br />
+                <img id="thumbnil" src="../images/responsive.png" alt="image" height="500" />
+            <br /><br />
+            There is no special code written in css or html files to acheive teh resonsiveness as bootstrap handles it for me.
+            However I have shared some of teh css code of my appliation here which helped in creating the pplication
+            </div><br /><br />
+
+            <strong>Code Snippet</strong><br /><br />
+            CSS Code: <br />
+            <p> code for maintaining the navbar wrapper class which comes into effect only in small screens </p>
+            <pre class="code">@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+ .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+</pre>
+<br />            <p> The navbar becomes detached from the top, so we round the corners screens and bump up sizes of carusal screens</p>
+            <pre class="code">@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+ .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+</pre>
+
+        </div>
+
+
+        <hr />
+
+
+
+        <div>
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week09/week903.html" target="_blank"> HTML </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/project_nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div> <a href="https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA" target="_blank">Prof. Jose Youtube Channel</a></div>
+            <div> <a href="http://getbootstrap.com/" target="_blank">Bootstrap Pages</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Passport JS </title>
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/week700.css" rel="stylesheet" />
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>
+            Passport JS: Registration
+        </h2>
+        <hr />
+        <h2>Description:</h2>
+        <div>
+
+            <p><br />
+            Reistration is just getting the user details and creating a user row in the database after validating the results.
+            Registration module in my project will give access to the user , all the important applications including creating course widgets.
+            This is made possible by the passport JS. As expplained in previous experiment , I did all the steps required.
+            <br /><p />
+           
+            <hr />
+
+            <h2>Project Link:</h2>
+            <p><a href="http://easynotes-shakti200.rhcloud.com/">Go to my project page and click login. </a>  <br />
+            Go the project link and register yourself. A record will be created for you in the database and you can sign in using your credentials to view the profile page.
+            </p>
+
+            <h3>Register</h3>
+            <p><img alt="image" src="../images/registration.png" height="500" /></p>
+            <p>After registration is successfull, a record is created in database. Following a screenshot of the above record in rockmongo
+            <img src="../images/data.png" height="200"/></p>
+            <h3>Node JS Code Snippet:</h3>
+            <p>
+                First off all I did all the configurations related to passportJS to work.
+                Following steps were executed in order.
+            </p>
+            <pre class="code">var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var cookieParser = require("cookie-parser");
+var session = require("express-session");
+var mongoose = require('mongoose');
+</pre>
+            <p>After that I created a user schema for storing the user user values.</p>
+            <pre class="code">var UserSchema = mongoose.Schema({
+    userid: String,
+    password: String,
+    email : String
+}, { collection: 'user' });
+var UserModel = mongoose.model('UserModel', UserSchema);
+</pre>
+            <p>The register rest url is created for registration.
+            The user data is taken from the request body and a query is fired to chek if the data already exists in database.
+            If no violations are found then a record is inserted into the database using the UserModel.
+            After registration , the user is logged in automatically using <code>req.login()</code> method.</p>
+            <pre class="code">app.post('/register', function(req, res)
+		{
+		    var newUser = req.body;
+		    UserModel.findOne({userid: newUser.userid}, function(err, user)
+		    {
+		        if(err) { return next(err); }
+		        if(user)
+		        {
+		            res.json(null);
+		            return;
+		        }
+		        var newUser = new UserModel(req.body);
+		        newUser.save(function(err, user)
+		        {
+		            req.login(user, function(err)
+		            {
+		                if(err) { return next(err); }
+		                res.json(user);
+		            });
+		        });
+		    });
+		});
+
+</pre>
+           <h3>AngularJS Code Snippet</h3>
+            <p>In the client side, we need to check if teh passwords match , if they match then call the register service to register.
+            If registration is done successfully, the user is routed to profile page.
+            </p>
+            <pre class="code">$scope.register = function(user){
+            console.log(user);
+            if(user.password != user.password2 || !user.password || !user.password2)
+            {
+                $rootScope.message = "Your passwords don't match";
+                $scope.regError = "Your passwords don't match";
+            }
+            else
+            {
+            	$scope.regError = null;
+                $http.post("/register", user)
+                .success(function(response){
+                    console.log(response);
+                    if(response != null)
+                    {
+                        $rootScope.currentUser = response;
+                        angular.element('#modalClose').trigger('click');
+                        $location.url("/profile");
+                        $http.get("/profile")
+                        .success(function(users)
+                        {
+                            $scope.profile = users;
+                        });
+                    }else{
+                    	$scope.regError = "Some issue in registration. Please try again";
+                    }
+                });
+            }
+        }
+
+</pre>
+        </div>
+
+        <hr />
+
+
+
+        <div>
+            <h3> View Source : </h3>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week10/week1002.html" target="_blank"> HTML </a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/css/week700.css" target="_blank"> CSS </a><br />
+            <a href="https://github.com/patro88/Web-Development/tree/master/project_nodejs" target="_blank"> NodeJS on Github </a><br />
+            <h3>References</h3>
+            <div> <a href="https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA" target="_blank">Prof. Jose Youtube Channel</a></div>
+            <div> <a href="http://passportjs.org/guide/" target="_blank">Passport Guide</a></div>
+        </div>
+
+        <hr />
+
+
+    </div>
+
+
+</body>
+</html>

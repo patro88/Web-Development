@@ -1,0 +1,7 @@
+﻿../../story/whatisnext.htm?../experiments/week09/week9_story.txt      What is Next?
+week901.html                                                          Project: Home Page design
+week902.html                                                          Project: Sign up and Register Modal Boxes
+week903.html                                                          Project: Responsive Design
+week904.html                                                          Project: About me route and Fixed Footer
+week905.html                                                          Project: Carousal Bootstrap
+week9_story.txt                                                       Project: The story file for this story
