@@ -10,49 +10,52 @@ app.config(['$routeProvider',
   function ($routeProvider) {
       $routeProvider.
         when('/home', {
-            templateUrl: 'carousalHome.html'
+            templateUrl: 'carousalHome.html',
+            controller: 'HomeController'
         }).
         when('/about', {
             templateUrl: 'aboutMe.html'
         }).
+        when('/profile', {
+            templateUrl: 'profile.html',
+            resolve: {
+                loggedin: checkLoggedin
+            }
+        }).
+//        when('/', {
+//        	redirectTo: '/home'
+//        });
         otherwise({
             redirectTo: '/home'
         });
   }]);
 
+var checkLoggedin = function($q, $timeout, $http, $location, $rootScope)
+{
+    var deferred = $q.defer();
 
-
-app.controller("HomeController",
-    function ($scope, $http) {
-        $http.get("/api/book")
-        .success(function (response) {
-            $scope.booklist = response;
-        });
-
-        $scope.remove = function (index) {
-            $http.delete("/api/book/" + index)// to delete data from the client-side
-            .success(function (response) {
-                $scope.booklist = response; // update the list after a row has been deleted
-            });
-        };
-        $scope.add = function (book){ 
-            $http.post("/api/book", book) // to add data onto the client-side
-            .success(function (response) {
-                $scope.booklist = response;// update the list after a row has been added
-            });
-        };
-        $scope.selectedIndex = null;
-        $scope.select = function (index)
+    $http.get('/loggedin').success(function(user)
+    {
+        $rootScope.errorMessage = null;
+        // User is Authenticated
+        if (user !== '0')
         {
-            $scope.selectedIndex = index;
-            $scope.book = $scope.booklist[index];
+            $rootScope.currentUser = user;
+            deferred.resolve();
         }
-        $scope.update = function (book) {
-            $http.put("/api/book/" + $scope.selectedIndex, book) // update a particular row
-            .success(function (response) {
-                $scope.booklist = response;// update the list after a row has been updated
-            });
-
-        };
-
+        // User is Not Authenticated
+        else
+        {
+            $rootScope.errorMessage = 'You need to log in.';
+            alert("You need to login");
+            deferred.reject();
+            $location.url('/login');
+        }
     });
+    
+    return deferred.promise;
+};
+
+
+
+

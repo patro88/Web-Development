@@ -40,8 +40,15 @@
 							<li id="ask"><a href="#/ask">Ask Questions</a></li>
 							<li id="about"><a href="#/about">About me</a></li>
 						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#signup" data-toggle="modal"
+						
+						<ul class="nav navbar-nav navbar-right" ng-show="profile">
+							<li><a href="#/profile">Profile</a></li>
+							<li ng-show= ><a href="#signup" data-toggle="modal"  
+								data-target=".bs-modal-sm">Sign In/Register</a></li>
+							<li><a href="#/logout" ng-click="logout()" >Logout</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right" ng-hide="profile">
+							<li><a href="#signup" data-toggle="modal"  
 								data-target=".bs-modal-sm">Sign In/Register</a></li>
 						</ul>
 					</div>
@@ -80,7 +87,7 @@
 	            <div class="control-group">
 	              <label class="control-label" for="userid">Alias:</label>
 	              <div class="controls">
-	                <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="User1234" class="input-medium" required="">
+	                <input ng-model=user.userid required="" id="userid" name="userid" type="text" class="form-control" placeholder="User1234" class="input-medium" required="">
 	              </div>
 	            </div>
 	
@@ -88,7 +95,7 @@
 	            <div class="control-group">
 	              <label class="control-label" for="passwordinput">Password:</label>
 	              <div class="controls">
-	                <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+	                <input ng-model=user.password required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
 	              </div>
 	            </div>
 	
@@ -107,13 +114,14 @@
 	            <div class="control-group">
 	              <label class="control-label" for="signin"></label>
 	              <div class="controls">
-	                <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+	                <button ng-click=login(user) id="signin" name="signin" class="btn btn-success">Sign In</button>
 	              </div>
 	            </div>
 	            </fieldset>
 	            </form>
 	        </div>
 	        <div class="tab-pane fade" id="signup">
+	        	<div ng-show="regError">{{regError}}</div>
 	            <form class="form-horizontal">
 	            <fieldset>
 	            <!-- Sign Up Form -->
@@ -121,7 +129,7 @@
 	            <div class="control-group">
 	              <label class="control-label" for="Email">Email:</label>
 	              <div class="controls">
-	                <input id="Email" name="Email" class="form-control" type="email" placeholder="user@domain.com" class="input-large" required="">
+	                <input ng-model="newuser.email" id="Email" name="Email" class="form-control" type="email" placeholder="user@domain.com" class="input-large" required="">
 	              </div>
 	            </div>
 	            
@@ -129,7 +137,7 @@
 	            <div class="control-group">
 	              <label class="control-label" for="userid">Alias:</label>
 	              <div class="controls">
-	                <input id="userid" name="userid" class="form-control" type="text" placeholder="user123" class="input-large" required="">
+	                <input ng-model="newuser.userid" id="userid" name="userid" class="form-control" type="text" placeholder="user123" class="input-large" required="">
 	              </div>
 	            </div>
 	            
@@ -137,7 +145,7 @@
 	            <div class="control-group">
 	              <label class="control-label" for="password">Password:</label>
 	              <div class="controls">
-	                <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+	                <input ng-model="newuser.password" id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
 	                <em>1-8 Characters</em>
 	              </div>
 	            </div>
@@ -146,12 +154,12 @@
 	            <div class="control-group">
 	              <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
 	              <div class="controls">
-	                <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+	                <input ng-model="newuser.password2" id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
 	              </div>
 	            </div>
 	            
 	            <!-- Multiple Radios (inline) -->
-	            <br>
+	           <!--  <br>
 	            <div class="control-group">
 	              <label class="control-label" for="humancheck">Humanity Check:</label>
 	              <div class="controls">
@@ -160,13 +168,13 @@
 	                <label class="radio inline" for="humancheck-1">
 	                  <input type="radio" name="humancheck" id="humancheck-1" value="human">&emsp;I'm Human</label>
 	              </div>
-	            </div>
+	            </div> -->
 	            
 	            <!-- Button -->
 	            <div class="control-group">
 	              <label class="control-label" for="confirmsignup"></label>
 	              <div class="controls">
-	                <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+	                <button ng-click="register(newuser)" id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
 	              </div>
 	            </div>
 	            </fieldset>
@@ -175,7 +183,7 @@
 	    </div>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" id="modalClose" class="btn btn-default" data-dismiss="modal">Close</button>
 	      </div>
 	    </div>
 	  </div>
@@ -197,6 +205,7 @@
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
     <script src="js/homeApp.js"></script>
+    <script src="js/homeCtrl.js"></script>
     <script src="js/holder.js"></script>
   
 
