@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Project: Search</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/project.css" />
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2> Project : Search Functionality</h2>
+        <hr />
+        <p>The search functionality is a very important requirement in any question and answer API. This allows users to search their queries very efficiently.
+        In this project I have implemented  very naive search functionality based on keyword search in database.
+        I have used angular <code>$or </code>and javascript <code>Regex</code> functionalities together to achieve this.</p>
+        
+        <br />
+        <h3> Snapshot: </h3>
+        <p>When the user enters a keyword, the search quer returns all questions with <code>title</code>
+        or all questions with <code>body</code> having the same keyword or pattern.</p>
+        <div>
+            <img class="" src="../images/search.png">
+        </div>
+        
+
+
+        <br /><br />
+        <h3> Search Services</h3>
+        <p>
+            Search Services use mongoDB and NodeJs functionalities having following services.
+            <ul>
+                <li>SearchService for all questions satisfying the regular expression.</li>
+            </ul>
+        </p>
+        <a href="projectMongoDB.html" class="nextpage">Next Page</a>
+    </div>
+</body>
+</html>

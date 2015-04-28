@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Project: MongoDB</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/project.css" />
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Storage - MongoDB</h1>
+        <hr>
+        <br>
+        <p>
+            A lot of data is handled in the project, for backend storage purpose I am using MongoDB which is a no SQL database.
+            In mongoDB there are collections instead of tables and documents (JSON Objects) instead of tupples.
+            <br>
+            The Coolections for my project are :
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><b>Collection</b></td>
+
+                    <td><b>Purpose</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>user</td>
+                    <td>This is the collection which stores data about the user i.e. the data to that user enters at time of registration. Also it stores the array of pages , which contains all the widgets created by the user.</td>
+                </tr>
+                <tr>
+                    <td>question</td>
+                    <td>The puspose of this collection is to store all the questions in the database. It has other important properties like answers array, likes array, created by , and tags array.</td>
+                </tr>
+                <tr>
+                    <td>tag</td>
+                    <td>This collection is used to store all the tags created while creating a question. The Question and tags collections have a many to many relation.</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <h3>Relevant Experiments</h3>
+        <a href="http://localhost:49726/story/index.htm?../experiments/week07/week7_story.txt">MongoDB Operations</a>
+        <br>
+        <br>
+        <a  href="thankyou.html">Next Page</a>
+    </div>
+    
+</body>
+</html>

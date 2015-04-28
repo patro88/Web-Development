@@ -1,0 +1,16 @@
+﻿../../story/whatisnext.htm?../experiments/project/project.txt		 What is Next?
+intro.html                                                           Project Introduction
+projectBlock.html													 Project Flow Chart	
+projectStart.html                                                    Home Page
+projectLogin.html                                                    Login and Register
+projectProfile.html                                                  Profile Page
+projectWidgets.html													 Widgets
+projectAskQ.html													 Ask Questions
+projectViewQ.html													 Questions Page
+projectTags.html													 Tags
+projectSearch.html													 Search functionality
+projectMongoDB.html													 Data Storage: MongoDB
+thankyou.html														 Thank you note
+project.txt	                                                         The story file for this story
+
+

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Project Widgets</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/project.css" />
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2> Project : Widgets Page </h2>
+        <hr />
+        <p>The widgets page allows user to create different widgets based on the classroom requirements. following four types of widgets can be created.</p>
+        <ul>
+            <li> Note Widget.</li>
+            <li> Bookmark Widget.</li>
+            <li> Embed Media Widget.</li>
+            <li> Embed Image Widget.</li>
+        </ul>
+
+        <h3> Widgets Snapshot</h3>
+        <p>Buttons allow to create different widgets. These are arranged in columns so that widgets appear below each column without disruting the flow.</p>
+        <div>
+            <img class="fullImage" src="../images/widgets.png">
+        </div>
+        <br /><br />
+        <h3> Note Widget Snapshot :</h3>
+        <p>User can create notes and edit them by clicking on edit button. Both title and body are editable. Gives flexibility for the user to save things.</p>
+        <div>
+            <img src="../images/notes.png">
+        </div>
+        <br /><br />
+        <h3> Bookmarks Snapshot :</h3>
+        <p>User can save bookmarks in his own titles. Clicking on the inks will open the page in a new window.</p>
+        <div>
+            <img src="../images/bookmark.png">
+        </div>
+
+        <br /><br />
+        <h3> Media Widget Snapshot :</h3>
+        <p>User can also save the youtube videos of lectures and can watch them when needed. The video is embeded in iframes which allows fullscreen functionality.
+        Also, the ful URL is needed as logic is writtten to slice the url and get the last code. Note that only youtube videos can be saved here.</p>
+        <div>
+            <img src="../images/media.png">
+        </div>
+        <br /><br />
+        <h3> Image Widget Snapshot :</h3>
+        <p>Images are also stored. This functionality is in progress and will be completed soon.</p>
+        <div>
+            <img src="../images/image.png">
+        </div>
+        
+        <br /><br />
+        <h3> Widget Services</h3>
+        <p>
+            The services for creating and saving widgets are created using NodeJS and are hosted on openshift. The following sevices are playing a role on this page:
+            <ul>
+                <li>Create a widget (all 4 types).</li>
+                <li>Edit a widget (possible only for notes,, bookmarks and video)</li>
+                <li>Delete a widget (possible for all widgets)</li>
+            </ul>
+        </p>
+        <a href="projectAskQ.html" class="nextpage">Next Page</a>
+    </div>
+</body>
+</html>

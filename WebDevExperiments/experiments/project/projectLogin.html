@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Project Login and Register</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/project.css" />
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2> Project : Login and Register </h2>
+        <hr />
+        <p>The Login and Register is implemented using a modal in the home page itself. It serves following purposes.</p>
+        <ul>
+            <li> Allow user to login to his account to access his personal pages.</li>
+            <li> Allow registration of user into the application to access the full version of the API.</li>
+            <li> This module also expects minimal details from user to register for a hassle free registration.</li>
+            <li> As most of the features like asking a question, creating own pages, and answering a question require a login, this module is of utmost significance.</li>
+        </ul>
+
+        <h3> Login Snapshot :</h3>
+        <div>
+            <img src="../images/login.png">
+        </div>
+        <br /><br />
+        <h3> Sign Up Snapshot :</h3>
+        <div>
+            <img src="../images/registration.png">
+        </div>
+
+        <br /><br />
+        <h3> Login Services</h3>
+        <p>Login services are designed using Node.js and Express Module. MongoDB is used for storing all the user data. Following services are playing role on login page:
+        <ul><li>Login Service - Checks the user credentials, matches them in data base and respond back accordingly</li></ul>
+        </p>
+
+        <br /><br />
+        <h3> Register User Services</h3>
+        <p>
+            The services for registering a new user are created using NodeJS and are hosted on openshift. The following sevices are playing a role on this page:
+            <ul>
+                <li>Check if user name exists or not.</li>
+                <li>Register a new user, store all the details in DB and respond back accordingly</li>
+            </ul>
+        </p>
+        <a href="projectProfile.html" class="nextpage">Next Page</a>
+    </div>
+</body>
+</html>

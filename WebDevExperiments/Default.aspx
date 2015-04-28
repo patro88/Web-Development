@@ -19,7 +19,7 @@
 </head>
 
 <body>
-
+        
     <div class="pad">
 
         <form id="form1" runat="server">
@@ -31,6 +31,72 @@
                            <span class="logomain">Web Dev Home</span>
                            <span class="logohover" onclick="location.reload();">Refresh Page &emsp;</span>
                     </li>
+                    <li class="sitestatistics navLink">
+                            <a href="sitestatistics/" target="_blank">
+                                <h3>SiteStatistics<span></span></h3>
+                            </a>
+                    </li>
+                    <li class="statistics navLink">
+                        <a href="statistics/" target="_blank">
+                            <h3>Statistics<span></span></h3>
+                        </a>
+                    </li>
+                    <li class="source navLink">
+                        <a href="source/" target="_blank">
+                            <h3>Source<span></span></h3>
+                        </a>
+                    </li>
+                    <li class="search navLink">
+                        <a href="search/" target="_blank">
+                            <h3>Search<span></span></h3>
+                        </a>
+                    </li>
+                    <li class="searchtree navLink">
+                        <a href="searchtree/" target="_blank">
+                            <h3>SearchTree<span></span></h3>
+                        </a>
+                    </li>
+                    <li class="textview navLink">
+                        <a href="textview/" target="_blank">
+                            <h3>TextView<span></span></h3>
+                        </a>
+                    </li>
+                    <li class="filelist navLink">
+                        <a href="filelist.aspx" target="_blank">
+                            <h3>FileList<span></span></h3>
+                        </a>
+                    </li>
+                    <li class="autofile navLink">
+                        <a href="autofile.aspx" target="_blank">
+                            <h3>AutoFile<span></span></h3>
+                        </a>
+                    </li>
+                    <li class="automiage navLink">
+                        <a href="images/autoimage.aspx" target="_blank">
+                            <h3>Images<span></span></h3>
+                        </a>
+                    </li>
+                    <li class="blog navLink">
+                        <a href="blog/" target="_blank">
+                            <h3>Blog<span></span></h3>
+                        </a>
+                    </li>
+
+                    <li class="list" style="display:none;">
+                        <img style="height: 30px; width: 45px; margin-top: 15px;" src="images/list.png">
+                    </li>
+
+                    <%--<li class="experiments">
+                            <a href="story/index.htm?../experiments/" target="_blank">
+                                <h3>Experiments<span></span></h3>
+                            </a>    
+                    </li>--%>
+                </ul>
+            </div>
+
+            <div id="smallNav" style=" z-index: 1000;">
+
+                <ul>
                     <li class="sitestatistics">
                             <a href="sitestatistics/" target="_blank">
                                 <h3>SiteStatistics<span></span></h3>
@@ -81,12 +147,6 @@
                             <h3>Blog<span></span></h3>
                         </a>
                     </li>
-
-                    <li class="experiments">
-                            <a href="story/index.htm?../experiments/" target="_blank">
-                                <h3>Experiments<span></span></h3>
-                            </a>
-                    </li>
                 </ul>
             </div>
             
@@ -104,14 +164,14 @@
                         In the web development course I want to further my knowledge on MEAN stack.
     
                         During the course I will be doing a lot of <a href="story/index.htm?../experiments/" target="_blank">experiments</a>. 
-                        Also, I will work on developing a <a href="#" target="_blank">project</a> at the end of the semester. 
+                        Also, I will work on developing a <a href="http://easynotes-shakti200.rhcloud.com/" target="_blank">project</a> at the end of the semester. 
                        All my experiments can be found on the <a href="https://github.com/patro88/Web-Development/tree/master/WebDevExperiments" target="_blank"> GitHub</a>.</p>
                     <p>
                         I look forward to learn and implement all the new concepts I learn in this course.
                         
                         
                     </p>    
-                        
+                     
                     
 
                 </div>
@@ -123,6 +183,22 @@
                 <a href="https://plus.google.com/u/0/+shaktiprasadpatro/about" target="_blank" id="googleLink"><img src="experiments/images/google-icon.jpg" id="googleImage"></a>
                 <a href="https://twitter.com/shaktiprasad200" target="_blank" id="twitterLink"><img src="experiments/images/twitter-icon.jpg" id="twitterImage"></a>
        
+            </div>
+            <div class="project">
+                <p class="button-p">
+                        <span class="button-container">
+                            <a title="Experiments" href="story/index.htm?../experiments/" target="_blank">Experiments</a>
+                        </span>
+
+                          <span class="button-container">
+                            <a title="Experiments" href="experiments/project/projectHome.html" target="_blank">Project</a>
+                        </span>
+
+                          <span class="button-container">
+                            <a title="Experiments" href="story/index.htm?../experiments/project/project.txt" target="_blank">Project Documentation</a>
+                        </span>
+                     </p>   
+
             </div>
         </form>
        
