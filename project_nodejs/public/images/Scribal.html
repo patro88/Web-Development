@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://localhost:3000/#/qa -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="This website is created for my project in WebDevelopment Course. Its called Scribal as it is a huge collection of data">
+<meta name="author" content="Shakti Prasad Patro">
+<link rel="icon" href="./Scribal_files/favicon.png">
+
+<title>Scribal</title>
+<link href="http://localhost:3000/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="css/carousel.css" rel="stylesheet"> -->
+<link href="http://localhost:3000/home/home.css" rel="stylesheet">
+<link href="http://localhost:3000/profile/profie.css" rel="stylesheet">
+<link href="http://localhost:3000/pages/page.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="js/dist/angular-block-ui.css"/> -->
+<link rel="stylesheet" href="http://localhost:3000/js/ng-tags-input.css">
+<link href="http://localhost:3000/questions/questions.css" rel="stylesheet">
+</head>
+
+<body ng-app="ATApp" ng-controller="HomeController" class="ng-scope">
+	<div class="mainContainer">
+		<div class="navbar-wrapper">
+			<div class="container">
+
+				<nav class="navbar navbar-default navbar-fixed-top">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+								<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="http://localhost:3000/#/home">
+							<span><img src="./Scribal_files/favicon.png" style="width:35px; margin: -8px 8px 0 0;"></span>Scribal</a>
+						</div>
+						<div id="navbar" class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li id="questions"><a href="http://localhost:3000/#/questions/all">Questions</a></li>
+								<li id="tags"><a href="http://localhost:3000/#/tags">Tags</a></li>
+								<!-- <li id="users"><a href="#/users">Users</a></li> -->
+								<li id="ask"><a href="http://localhost:3000/#/ask">Ask Questions</a></li>
+								<li id="about"><a href="http://localhost:3000/#/about">About me</a></li>
+							</ul>
+
+							<ul class="nav navbar-nav navbar-right ng-hide" ng-show="currentUser">
+								<li><a href="http://localhost:3000/#/profile">Profile</a></li>
+								<li><a href="http://localhost:3000/#/logout" ng-click="logout()">Logout</a></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-right" ng-hide="currentUser">
+								<li><a href="http://localhost:3000/#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign in/Register</a></li>
+							</ul>
+						</div>
+						<!--/.nav-collapse -->
+					</div>
+				</nav>
+
+			</div>
+		</div>
+
+		
+
+		<!-- Modal for Sign in / Register -->
+		<div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<br>
+					<div class="bs-example bs-example-tabs">
+						<ul id="myTab" class="nav nav-tabs">
+							<li class="active"><a href="http://localhost:3000/#signin" data-toggle="tab">Sign
+									In</a></li>
+							<li class=""><a href="http://localhost:3000/#signup" data-toggle="tab">Register</a></li>
+							<li class=""><a href="http://localhost:3000/#why" data-toggle="tab">Why?</a></li>
+						</ul>
+					</div>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade in" id="why">
+								<p>We need this information so that you can receive access
+									to the site and its content. Rest assured your information will
+									not be sold, traded, or given to anyone.</p>
+								<p></p>
+								<br> Please contact <a mailto:href="patro.s@husky.neu.edu"></a>patro.s@husky.neu.edu
+								for any other inquiries.
+								<p></p>
+							</div>
+							<div class="tab-pane fade active in" id="signin">
+								<form class="form-horizontal ng-dirty ng-valid-parse ng-valid ng-valid-required">
+									<fieldset>
+										<!-- Sign In Form -->
+										<!-- Text input-->
+										<div class="control-group">
+											<label class="control-label" for="userid">Alias:</label>
+											<div class="controls">
+												<input ng-model="user.userid" required="" id="userid" name="userid" type="text" class="form-control ng-untouched ng-dirty ng-valid-parse ng-valid ng-valid-required" placeholder="User1234">
+											</div>
+										</div>
+
+										<!-- Password input-->
+										<div class="control-group">
+											<label class="control-label" for="passwordinput">Password:</label>
+											<div class="controls">
+												<input ng-model="user.password" required="" id="passwordinput" name="passwordinput" class="form-control ng-untouched ng-dirty ng-valid-parse ng-valid ng-valid-required" type="password" placeholder="********">
+											</div>
+										</div>
+
+										<!-- Multiple Checkboxes (inline) -->
+										<div class="control-group">
+											<label class="control-label" for="rememberme"></label>
+											<div class="controls">
+												<label class="checkbox inline" for="rememberme-0"> <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">  Remember me
+												</label>
+											</div>
+										</div>
+
+										<!-- Button -->
+										<div class="control-group">
+											<label class="control-label" for="signin"></label>
+											<div class="controls">
+												<button ng-click="login(user)" id="signin" name="signin" class="btn btn-success">Sign In</button>
+											</div>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="signup">
+								<form class="form-horizontal ng-pristine ng-valid-email ng-invalid ng-invalid-required">
+									<fieldset>
+										<!-- Sign Up Form -->
+										<!-- Text input-->
+										<div class="control-group">
+											<label class="control-label" for="Email">Email:</label>
+											<div class="controls">
+												<input ng-model="newuser.email" id="Email" name="Email" class="form-control ng-pristine ng-untouched ng-valid-email ng-invalid ng-invalid-required" type="email" placeholder="user@domain.com" required="">
+											</div>
+										</div>
+
+										<!-- Text input-->
+										<div class="control-group">
+											<label class="control-label" for="userid">Alias:</label>
+											<div class="controls">
+												<input ng-model="newuser.userid" id="userid" name="userid" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" type="text" placeholder="user123" required="">
+											</div>
+										</div>
+
+										<!-- Password input-->
+										<div class="control-group">
+											<label class="control-label" for="password">Password:</label>
+											<div class="controls">
+												<input ng-model="newuser.password" id="password" name="password" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" type="password" placeholder="********" required="">
+												<em>1-8 Characters</em>
+											</div>
+										</div>
+
+										<!-- Text input-->
+										<div class="control-group">
+											<label class="control-label" for="reenterpassword">Re-Enter
+												Password:</label>
+											<div class="controls">
+												<input ng-model="newuser.password2" id="reenterpassword" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" name="reenterpassword" type="password" placeholder="********" required="">
+											</div>
+										</div>
+
+										<!-- Multiple Radios (inline) -->
+										<!--  <br>
+		            <div class="control-group">
+		              <label class="control-label" for="humancheck">Humanity Check:</label>
+		              <div class="controls">
+		                <label class="radio inline" for="humancheck-0">
+		                  <input type="radio" name="humancheck" id="humancheck-0" value="robot" checked="checked">&emsp;I'm a Robot</label>
+		                <label class="radio inline" for="humancheck-1">
+		                  <input type="radio" name="humancheck" id="humancheck-1" value="human">&emsp;I'm Human</label>
+		              </div>
+		            </div> -->
+
+										<!-- Button -->
+										<div class="control-group">
+											<label class="control-label" for="confirmsignup"></label>
+											<div class="controls">
+												<button ng-click="register(newuser)" id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign
+													Up</button>
+											</div>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="modalClose" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--  ng-View  Container-->
+		<!-- ngView:  --><div class="main ng-scope" ng-view=""><h2 class="pageHeader ng-scope">Question Details</h2>
+
+<div class="container ng-scope">
+	<!-- <div ng-repeat = "q in qa">
+		<h3>Title</h3>
+		<div>{{q.title}}</div>
+		<h3 ng-show="q.tags.length > 0">Tags</h3>
+
+		<div class="pageDiv">
+			<div ng-repeat="tag in q.tags" class="pagesNormal">
+				<a class="pageClass" id="tag" style="text-decoration: none"
+					ng-click="tagClick(tag.text);">{{tag.text}}</a>
+			</div>
+		</div>
+		<br>
+		<h3>Description</h3>
+		<div>{{q.description}}</div>
+		<h3 ng-show="q.answers.length > 0">Answers</h3>
+		<div ng-repeat = "ans in q.answers">
+			<pre>{{ans}}</pre>
+		</div>
+		
+	</div> -->
+	
+	<!-- ngRepeat: q in qa --><div class="col-md-9 ng-scope" ng-repeat="q in qa">
+		<article class="question single-question question-type-normal">
+			<h2>
+				<a href="" class="ng-binding">q2</a>
+			</h2>
+			<div class="question-inner">
+				<div class="clearfix"></div>
+				<div class="question-desc ng-binding">
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+				</div>
+				<span class="single-question-vote-result ng-binding">+</span>
+				<ul class="single-question-vote">
+					<li><a href="" class="single-question-vote-down" title="Dislike"><i class="glyphicon glyphicon-thumbs-down"></i></a></li>
+					<li><a href="" class="single-question-vote-up" title="Like"><i class="glyphicon glyphicon-thumbs-up"></i></a></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</article>
+	</div><!-- end ngRepeat: q in qa -->
+	<div class="clearfix"></div>
+	<div ng-show="currentUser" class="ng-hide">
+		<h3>Post Your Answer Here</h3>
+		<div class="answer form-group">
+			<textarea rows="8" id="ans" class="form-control ng-pristine ng-untouched ng-valid" ng-model="answer" placeholder="Describe your answer in detail with examples if possible"></textarea>
+			<div style="margin-top: 10px;">
+				<button class="btn btn-primary pull-left" ng-click="submitAns()">Post Answer</button>	
+			</div>
+		
+		</div>
+	</div>
+	
+	<div class="alert alert-danger" ng-hide="currentUser">
+		<p>Please login or register to answer questions</p>
+	</div>	
+	
+</div></div>
+		<!--  ng-View  Container-->
+
+	</div>
+	<!-- /.container -->
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="./Scribal_files/jquery-2.1.3.min.js"></script>
+	<script src="./Scribal_files/bootstrap.min.js"></script>
+	<script src="./Scribal_files/angular.min.js"></script>
+	<script src="./Scribal_files/angular-route.min.js"></script>
+	<script src="./Scribal_files/ng-tags-input.js"></script>
+	<script src="./Scribal_files/app.js"></script>
+	<script src="./Scribal_files/homeCtrl.js"></script>
+	<script src="./Scribal_files/profileCtrl.js"></script>
+	<script src="./Scribal_files/pageCtrl.js"></script>
+	<script src="./Scribal_files/ask.js"></script>
+	<script src="./Scribal_files/questions.js"></script>
+	<script src="./Scribal_files/qa.js"></script>
+	<script src="./Scribal_files/tags.js"></script>
+	 <script src="./Scribal_files/angular-file-upload.js"></script>
+	<!-- <script src="js/dist/angular-block-ui.min.js"></script> -->
+	
+
+	<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;">
+		<defs></defs>
+		<text x="0" y="23" style="font-weight:bold;font-size:23pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">500x500</text></svg>
+
+
+
+
+
+
+</body></html>

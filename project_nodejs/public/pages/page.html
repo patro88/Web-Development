@@ -1,0 +1,181 @@
+
+<div ng-controller="PageController">
+
+	<div class="widget row">
+		<div class="note col-md-3 text-center">
+			<button class="btn btn-success" ng-click="createNote()">
+				<span class="glyphicon glyphicon-plus"></span> Create a note
+			</button>
+			<section ng-repeat="note in notes" ng-init= "displayEdit[$index] = true">
+				<article >
+					<header> 
+						<i class='glyphicon glyphicon-pencil pull-left'></i> <input
+							class="title" spellcheck="false" value={{note.title}} 
+							id="notetitle{{$index}}" ng-readonly="displayEdit[$index]"
+							ng-model="note.title">
+						<button
+							class='btn btn-warning glyphicon glyphicon-edit pull-right btn-sm'
+							ng-show='displayEdit[{{$index}}]' ng-click='displayEdit[$index] = false'></button>
+						<button
+							class='btn btn-danger glyphicon glyphicon-ban-circle pull-right btn-sm'
+							ng-hide='displayEdit[{{$index}}]' ng-click='delNote($index)'></button>
+						<button
+							class='btn btn-primary glyphicon glyphicon-ok pull-right btn-sm'
+							ng-hide='displayEdit[{{$index}}]' ng-click='displayEdit[$index] = true; saveNote($index)'></button>
+					</header>
+					<div class='body'>
+
+						<textarea elastic id="notetext{{$index}}" spellcheck="false"
+							class="editParentDiv" cols='35' ng-model="note.text"
+							ng-readonly="displayEdit[$index]">{{note.text}}</textarea>
+				</article>
+			</section>
+		</div>
+
+
+		<div class="bookmark col-md-3 text-center">
+			<button class="btn btn-success" ng-click="createBookmark()">
+				<span class="glyphicon glyphicon-plus"></span> Add Bookmark
+			</button>
+			<section ng-repeat="bookmark in bookmarks" ng-init= "displayBookmark[$index] = true;">
+				<article>
+					<header>
+						<i class='glyphicon glyphicon-bookmark pull-left'></i>  
+						<a
+							href='{{bookmark.url}}' class="title"
+							id="bookmarktitle{{$index}}" target="_blank">
+							<span class="title">{{bookmark.title}}</span></a>
+						
+						<button
+							class='btn btn-warning glyphicon glyphicon-edit pull-right btn-sm'
+							ng-show='displayBookmark[{{$index}}]'
+							ng-click='displayBookmark[$index] = false'></button>
+						<button
+							class='btn btn-danger glyphicon glyphicon-ban-circle pull-right btn-sm'
+							ng-hide='displayBookmark[{{$index}}]'
+							ng-click='delBookmark($index)'></button>
+						<button
+							class='btn btn-primary glyphicon glyphicon-ok pull-right btn-sm'
+							ng-hide='displayBookmark[{{$index}}]'
+							ng-click='displayBookmark[$index] = true; saveBookmark($index)'></button>
+					</header>
+					<div class='body'>
+
+						<div id="bookmarkurl{{$index}}" class="bookmarkParentDiv"
+							cols='50' ng-hide='displayBookmark[{{$index}}]'>
+							<div>
+								<div>
+									<label for="bookmarkTitle">Title</label> <input
+										onclick="this.select();" id="bookmarkTitle" type="text"
+										value="{{bookmark.title}}" ng-model="bookmark.title" />
+								</div>
+								<div>
+									<label for="bookmarkUrl">URL</label> <input
+										onclick="this.select();" id="bookmarkUrl" type="text"
+										value="JSON.parse({{bookmark.url}})" ng-model="bookmark.url" />
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+
+		</div>
+
+		<div class="embeded col-md-3 text-center">
+			<button class="btn btn-success" ng-click="createMedia()">
+				<span class="glyphicon glyphicon-plus"></span> Add Media
+			</button>
+			<section ng-repeat="media in medias" ng-init = "displayMedia[$index] = true">
+				<article>
+					<header>
+						<i class='glyphicon glyphicon-film pull-left'></i> <span
+							class="titlespan">{{media.title}}</span>
+						<button
+						class='btn btn-warning glyphicon glyphicon-edit pull-right btn-sm'
+						ng-show='displayMedia[{{$index}}]'
+						ng-click='displayMedia[$index] = false'></button>
+						<button
+							class='btn btn-danger glyphicon glyphicon-ban-circle pull-right btn-sm'
+							ng-click='delMedia($index)' ng-hide='displayMedia[{{$index}}]'></button>
+						<button id="mediabutton{{$index}}"
+							class='btn btn-primary glyphicon glyphicon-ok pull-right btn-sm'
+							ng-click='displayMedia[$index] = true; saveMedia($index)' ng-hide= "displayMedia[{{$index}}]"></button>
+					</header>
+					<div class='body'>
+
+						<div id="mediaedit{{$index}}" class="mediaParentDiv" cols='50' ng-hide='displayMedia[{{$index}}]'>
+							<div>
+								<div>
+									<label for="mediaTitle">Title</label> <input id="mediaTitle"
+										type="text" onclick="this.select();" value="{{media.title}}"
+										ng-model="media.title" />
+								</div>
+								<div>
+									<label for="mediaUrl">URL</label> 
+									<input id="mediaUrl"
+										type="text" onclick="this.select();" value= {{getUrl(media.url)}}
+										placeholder="Paste YOUTUBE url" ng-model="media.url" />
+									<input type="hidden" ng-model="media.url" />
+								</div>
+
+							</div>
+						</div>
+
+						<div id="mediashow{{$index}}" style='padding: 4px;' ng-show='displayMedia[{{$index}}]'>
+							<iframe width="100%" ng-src="{{getUrl(media.url)}}" frameborder="0 " allowfullscreen></iframe>
+						</div>
+
+					</div>
+				</article>
+			</section>
+
+		</div>
+
+
+		<div class="image col-md-3 text-center">
+			<button class="btn btn-success" ng-click="createImage()">
+				<span class="glyphicon glyphicon-plus"></span> Embed Images
+			</button>
+			<section ng-repeat="image in images">
+				<article>
+					<header>
+						<i class='glyphicon glyphicon-bookmark pull-left'></i> <span
+							class="titlespan">{{image.title}}</span>
+						<button
+							class='btn btn-danger glyphicon glyphicon-ban-circle pull-right btn-sm'
+							ng-click='delImage($index)'></button>
+						<button id="imagebutton{{$index}}"
+							class='btn btn-primary glyphicon glyphicon-ok pull-right btn-sm'
+							ng-click='saveImage($index)'></button>
+
+					</header>
+
+					<div class='body'>
+
+						<div id="imageedit{{$index}}" class="imageParentDiv" cols='50'>
+							<div>
+								<div>
+									<label for="imageTitle">Title</label> <input id="imageTitle"
+										type="text" onclick="this.select();" value="{{image.title}}"
+										ng-model="image.title" />
+
+								</div>
+								<div ng-repeat="step in stepsModel">
+									<img class="thumb" ng-src="{{step}}" />
+								</div>
+
+								<input type='file' ng-model-instant
+									onchange="angular.element(this).scope().imageUpload(this)" />
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+
+		</div>
+
+
+	</div>
+</div>

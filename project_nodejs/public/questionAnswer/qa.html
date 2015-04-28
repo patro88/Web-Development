@@ -1,0 +1,80 @@
+<h2 class="pageHeader">Question Details</h2>
+
+<div class="container">
+	
+	<div class="col-md-9" ng-repeat = "q in qa">
+		<article class="question single-question question-type-normal">
+			<h2>
+				<a href="">{{q.title}}</a>
+			</h2>
+			<div class="question-inner">
+				<div class="clearfix"></div>
+				<div class="question-desc">
+					{{q.description}}
+				</div>
+				<span class="single-question-vote-result">+ {{q.likes.length>0?q.likes.length:0}} </span>
+				<ul class="single-question-vote" ng-show="currentUser">
+					<li><a href="" ng-click= "dislike(q._id, currentUser.userid)" ng-show="q.likes.indexOf(currentUser.userid) != -1" class="single-question-vote-down" title="Dislike"><i class="glyphicon glyphicon-thumbs-down"></i></a></li>
+					<li><a href="" ng-click= "like(q._id, currentUser.userid)" ng-hide="q.likes.indexOf(currentUser.userid) != -1" class="single-question-vote-up" title="Like"><i class="glyphicon glyphicon-thumbs-up"></i></a></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</article>
+
+
+		<div class="share-tags page-content">
+			Tags
+			<div class="question-tags">
+				<i class="glyphicon glyphicon-tags" style="padding-right: 5px;"></i> <span
+					ng-repeat="tag in q.tags"> <a href=""
+					ng-click="tagClickQA(tag.text)" style="padding-right: 5px;"> {{tag.text}}</a>
+				</span>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+		
+		<div id="commentlist" class="page-content">
+		
+			<div class="boxedtitle page-title"><h2>Answers ( <span class="color">{{q.answers.length}}</span> )</h2></div>
+			<ol class="commentlist clearfix" ng-repeat = "ans in q.answers">
+				<li class="comment">
+					        <div class="comment-body clearfix"> 
+					            <div class="avatar"><img alt="" src="../images/usersmall.png"></div>
+					            <div class="comment-text">
+					                <div class="author clearfix">
+					                	<div class="comment-author"><a href="#/profile/{{ans.user}}" >{{ans.user}}</a></div>
+					                    </div>
+					                <div class="text"><p>{{ans.answer}}</p>
+					                </div>
+					            </div>
+					        </div>
+					    </li>
+			</ol>
+			<div class="clearfix"></div>
+		</div>
+
+
+		<div ng-show="currentUser" class="page-content">
+			<h3>Post Your Answer Here</h3>
+			<div class="answer form-group">
+				<textarea rows="8" id="ans" class="form-control" ng-model="answerVal"
+					placeholder="Describe your answer in detail with examples if possible"></textarea>
+				<div style="margin-top: 10px;">
+					<button class="btn btn-primary pull-left" ng-click="submitAns(q._id, answerVal)">Post
+						Answer</button>
+				</div>
+
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+		<div class="alert alert-danger" ng-hide="currentUser">
+			<p>Please login or register to answer questions</p>
+		</div>
+	</div>
+	
+	
+	
+	
+</div>

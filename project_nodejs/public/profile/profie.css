@@ -1,0 +1,145 @@
+
+fieldset {
+  border: none;
+  padding: 1em 0;
+  margin: 0 0 1em 0;
+}
+
+
+fieldset a:hover{
+  text-decoration: none;
+  color: #FFF;
+}
+
+fieldset legend {
+  display: block;
+  width: 100%;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #253749;
+  font-family: Gudea,"Helvetica Neue",HelveticaNeue,TeXGyreHeros,"Nimbus Sans L","Liberation Sans",Helvetica,Arial,sans-serif;
+  font-size: 21px;
+  font-weight: normal;
+}
+
+.pageClass{
+	  padding: .4em .8em .4em .2em;
+ /*  margin: 0 3px 3px 0; */
+  color: #fff;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+/*   font-size: 12px; */
+  background-color: #333;
+  border: 1px solid #333;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+#pageTitle {
+    background-color: #fafafa;
+    padding: 7px;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    display: block;
+    border: solid 2px #bbb;
+    color: #6f6f6f;
+}
+
+#pageTitle {
+	display:inline-block; 
+	font-size:0.9em; 
+	font-weight:400; 
+	border:0; 
+	width:250px;
+	height:32px;
+	margin:0;
+	border: 1px solid #253749;
+}
+.addPage{
+	display:inline-block;
+	border-width:0px 0px 0px 0px;
+	margin:0;
+	height:32px;
+}
+
+#addBtn{
+	/* background-color: #253749; */ 
+	padding-bottom:30px;
+}
+.pageClass:hover{
+	background-color: orange;
+	cursor: pointer;
+}
+
+.pageDelete{
+	padding: .4em .8em .4em .2em;
+	margin: 0 3px 3px 0;
+	color: gold;
+	line-height: 1;
+	text-decoration: none;
+	white-space: nowrap;
+/* 	font-size: 12px; */
+	background-color: #333;
+	border: 1px solid #333;
+	display: inline-block;
+	border-radius: 4px;
+}
+
+.pageDelete:hover{
+	background-color: red;
+}
+
+.page1Class {
+	  display: inline-block;
+  overflow: hidden;
+  line-height: inherit;
+  vertical-align: text-bottom;
+  width: 14px;
+  height: 14px;
+  background-position: -97px -398px;
+}
+.pageDiv{
+	display: inline-flex;
+	float:left;
+}
+
+.pagesNormal{
+   margin-right: 10px;
+  /* background: white; */
+  text-align: center;
+  box-shadow: 0px 2px 3px 0.5px rgba(0,0,0,0.2);
+}
+
+/***QnA Related************/
+
+.user-profile-widget .ul_list {
+  margin-bottom: 0;
+}
+
+.user-profile-widget .ul_list *:last-child {
+  margin-bottom: 0;
+}
+
+.user-profile-widget .ul_list li:nth-child(2n+1) {
+  margin-right: 2%;
+}
+
+.widget.widget_stats li, .user-profile-widget .ul_list li {
+  color: #2f3239;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #eaeaeb;
+  margin-bottom: 10px;
+  padding: 10px !important;
+}
+
+.user-profile-widget .ul_list *:last-child {
+  margin-bottom: 0;
+}
+
+.user-profile-widget .ul_list li {
+  width: 49%;
+  float: left;
+  margin-bottom: 20px !important;
+}

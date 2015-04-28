@@ -1,0 +1,124 @@
+<div>
+	<div class="container">
+		<div class="jumbotron">
+			<div class="container page-content" >
+				<div class="col-md-6">
+					<img src="../images/user.jpeg" class="img-circle">
+					<h2>{{profileid}}</h2>
+
+				</div>
+
+				<div class="col-md-6" ng-show= "currentUser">
+					<p>USER DETAILS:</p>
+					<table class='table'>
+						<tbody>
+							<tr>
+								<th>User</th>
+								<th>Email</th>
+								<th ng-show="currentUser">Pages Created</th>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>{{currentUser.userid}}</td>
+								<td>{{currentUser.email}}</td>
+								<td ng-show="currentUser">{{pages.length}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			
+			</div>
+			
+			<div class= "page-content" ng-show= "currentUser">
+			<fieldset>
+				<legend>View your pages</legend>
+				<div id="addBtn">
+					<input  id="pageTitle" type="text" value="" ng-hide="deleteStart"
+						placeholder="Enter Page Title" ng-model="title"/>
+					<button id="createPageBtn" class="btn btn-info" ng-click="createPage(title)" ng-hide="deleteStart">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Create new Page
+					</button>
+					<button id="deleteStartBtn" class="btn btn-danger"  ng-hide="deleteStart" ng-click="deleteStart = true">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Delete Pages
+					</button>
+					<button id="deleteEndBtn" class="btn btn-success" ng-show="deleteStart" ng-click="deleteStart=false" >
+						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Done
+					</button>
+				</div>
+
+				<div ng-repeat="page in pages" class="pageDiv" >
+					<div ng-click="pageClicked(page)" class="pagesNormal" ng-hide="deleteStart">
+                        <a href="" title="page" class="pageClass">
+                        <span class="page1Class glyphicon glyphicon-star"></span>&nbsp;{{page.pageTitle}}</a>
+                    </div>
+                    
+                    <div ng-click="pageDelete(page)" ng-show="deleteStart">
+                        <a href="" title="page" class="pageDelete">
+                        <span class="page1Class glyphicon glyphicon-remove"></span>&nbsp;{{page.pageTitle}}</a>
+                    </div>
+                    
+				</div>
+			</fieldset>
+
+			</div>
+				
+			
+			<div class="page-content page-content-user-profile">
+				<fieldset class="user-profile-widget">
+					<legend>QnA Stats</legend>
+					<div class="ul_list ul_list-icon-ok">
+						<ul>
+							<li><i class="glyphicon glyphicon-question-sign"></i><a href="" ng-click="questions = asked">Questions<span> ( <span>{{asked.length}}</span> ) </span></a></li>
+							<li><i class="glyphicon glyphicon-ok-sign"></i><a href="" ng-click="questions = answered">Answers<span> ( <span>{{answered.length}}</span> ) </span></a></li>
+							<li><i class="glyphicon glyphicon-thumbs-up"></i><a href="" ng-click="questions = liked">Favorite Questions<span> ( <span>{{liked.length}}</span> ) </span></a></li>
+							
+						</ul>
+					</div>
+				</fieldset><!-- End user-profile-widget -->
+				
+			</div>
+			
+			<div class="clearfix"></div>
+
+
+			<div class="tabs-warp question-tab" ng-show="questions">
+				<div class="tab-inner-warp">
+					<div class="tab-inner" ng-repeat="qn in questions">
+						<article class="question question-type-normal">
+							<h2>
+								<a href="" ng-click="questionDetails(qn._id)">{{qn.title}}</a>
+							</h2>
+							
+							<div class="question-inner">
+								<div class="clearfix"></div>
+								<div class="question-details">
+									<span class="question-favorite"><i class="icon-star"></i>{{qn.likes.length>0?qn.likes.length:0}}
+										likes</span>
+								</div>
+								<span class="question-category" ng-repeat="tag in qn.tags"><a
+									href="" ng-click="tagClickQ(tag.text)"> <i
+										class="glyphicon glyphicon-tag"></i>{{tag.text}}
+								</a></span> <span class="question-date"><i
+									class="glyphicon glyphicon-time"></i> {{qn.created |
+									date:'yyyy-MM-dd HH:mm:ss Z'}}</span> <span class="question-comment"><a
+									href="" ng-click="questionDetails(qn._id)"> <i
+										class="icon-comment"></i>{{qn.answers.length}} Answers
+								</a></span> <span class="question-view"> <i class="icon-user"></i>{{qn.visits}}
+									views
+								</span>
+								<div class="clearfix"></div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+</div>

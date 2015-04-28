@@ -1,0 +1,14 @@
+<h2 class="pageHeader">Tags</h2>
+<div class="container">
+	<div class= "page-content">
+		<p>A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question</p>
+		<p>Listed below are all the tags in this application till date. Click on any to view questions related to it.</p>
+	</div>
+	<hr>
+	<div class="pageDiv">
+		<div ng-repeat="tag in tags" class="pagesNormal">
+			<a class="pageClass" id="tag" style="text-decoration: none" ng-click="tagClick(tag.text);">{{tag.text}}</a>
+			<!-- <div>{{tag.questions.length}} Questions Asked</div> -->
+		</div>
+	</div>
+</div>

@@ -1,0 +1,61 @@
+
+<h2 class="pageHeader">Questions</h2>
+<!-- <div class="container" ng-controller="QuestionController" style="text-align: left;">
+	
+	<div ng-show="questions.length>0" >
+		
+		
+		<h2 ng-show="qtags">Questions Related to Tag :<span style="color: red;"> {{tag.text}}</span></h2>
+		<hr>
+		<div ng-repeat="qn in questions" class="container"
+		style="margin-bottom: 24px; padding-bottom: 1px;" 
+		ng-click="questionDetails(qn._id)">
+			<p>{{qn.title}}</p>
+			<p style="heigt: 20px">{{qn.description}}<p>
+			<p style="heigt: 20px">{{qn.answers.length}} Answers<p>
+		</div>
+	</div>
+	
+</div> -->
+
+<div class= "qmain col-md-9" >
+	<div class="tabs-warp question-tab">
+		<div class="tab-inner-warp">
+			<div class= "tab-inner" ng-repeat="qn in questions" >
+				<article class="question question-type-normal">
+					<h2>
+						<a href="" ng-click="questionDetails(qn._id)">{{qn.title}}</a>
+					</h2>
+					<div class="question-author">
+						<a href="#/profile/{{qn.created_by}}"  class="question-author-img tooltip-n"><span></span>
+						<img
+							alt=""
+							src="../images/usersmall.png"></a>
+					</div>
+					<div class="question-inner">
+						<div class="clearfix"></div>
+						<p class="question-desc">{{qn.description}}</p>
+						<div class="question-details">
+							<span class="question-favorite"><i
+								class="icon-star"></i>{{qn.likes.length>0?qn.likes.length:0}} likes</span>
+						</div>
+						<span class="question-category" ng-repeat= "tag in qn.tags"><a href="" ng-click= "tagClickQ(tag.text)">
+							<i class="glyphicon glyphicon-tag"></i>{{tag.text}}</a></span> 
+							<span class="question-date"><i class="glyphicon glyphicon-time"></i> {{qn.created | date:'yyyy-MM-dd HH:mm:ss Z'}}</span>
+							<span class="question-comment"><a href="" ng-click="questionDetails(qn._id)">
+								<i class="icon-comment"></i>{{qn.answers.length}} Answers</a></span> 
+							<span class="question-view">
+								<i class="icon-user"></i>{{qn.visits}} views</span>
+						<div class="clearfix"></div>
+					</div>
+				</article>
+			</div>
+		</div>
+	</div>
+	
+	<div class= "alert alert-danger" ng-hide="questions.length>0">
+		<p>There were no Questions found. Please try again.(Login/Register to ask a question.) </p>
+	</div>
+</div>
+
+

@@ -1,0 +1,30 @@
+<h2 class= "pageHeader">Ask your Question</h2>
+
+<div class="container" ng-show= "currentUser">
+
+	
+	<div class="questionTitle form-group">
+		<label for="qTitle"> Title</label> 
+		<input id="qTitle" ng-model="title"
+			class="form-control" maxlength="120"
+			placeholder="What's your question? Be specific." />
+	</div>
+
+	<div class="questionDesc form-group">
+		<label for="qDesc"> Description </label>
+		<textarea rows="12" id="qDesc" class="form-control" ng-model="description"
+			placeholder="Describe your question in detail with examples if possible"></textarea>
+
+	</div>
+	<div class="questionTags form-group">
+		<label for="qTags"> Tags</label>
+		<tags-input ng-model="tags"></tags-input>
+
+	</div>
+	<button class="btn btn-primary pull-left" ng-click="submit()">Post Question</button>
+
+</div>
+
+<div class= "alert alert-danger" ng-hide="currentUser">
+		<p>Please login or register to post questions</p>
+</div>
